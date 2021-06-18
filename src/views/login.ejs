@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('layout/head.ejs')%>
+        <link rel="stylesheet" href="stylesheets/login.css">
+</head>
+
+<body class="container">
+
+    <header>
+        <%- include('layout/header.ejs')%>
+    </header>
+
+    <main>
+        <div class="card card-container" style="opacity: 0.9;">
+    
+            <img id="profile-img" class="profile-img-card" src="../images/avatarLogin1.jpg"/>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <!-- <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Read Me
+                    </label>
+                </div> -->
+                <br>
+                <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Login</button>
+            </form>
+            <a href="#" class="forgot-password">
+                Forgot password?
+            </a>
+            <a href="/register" class="forgot-password">
+                Click Here to Register
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('layout/footer.ejs')%>
+    </footer>
+
+</body>
+
+</html>
