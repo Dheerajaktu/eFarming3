@@ -4,6 +4,7 @@
 <head>
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/login.css">
+        <script src="javascripts/users.js"></script>
 </head>
 
 <body class="container">
@@ -17,16 +18,23 @@
 
             <!-- <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/> -->
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" style="margin-top: -50px;">
+            <form class="form-signin" style="margin-top: -50px;" id="registerationForm" method="POST"
+                action="/register">
                 <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="inputEmail" class="form-control" placeholder="Firstname" required autofocus>
-                <input type="text" id="inputEmail" class="form-control" placeholder="Lastname" required autofocus>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-                <input type="number" id="inputEmail" class="form-control" placeholder="Mobile Number" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus style="margin-top: 8px;">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Confirm Password" required>
+                <input type="text" id="firstName" class="form-control" name="firstName" placeholder="Firstname" required
+                    autofocus>
+                <input type="text" id="lastName" class="form-control" name="lastName" placeholder="Lastname" required
+                    autofocus>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Email" required autofocus>
+                <input type="number" id="mobileNumber" class="form-control" name="mobileNumber"
+                    placeholder="Mobile Number" required autofocus>
+                <input type="password" id="password" class="form-control" name="password" placeholder="Password"
+                    required autofocus style="margin-top: 8px;">
+                <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password"
+                    required>
                 <br>
-                <button class="btn btn-lg btn-success btn-block btn-signin" type="submit">Register</button>
+                <button class="btn btn-lg btn-success btn-block btn-signin" type="submit"
+                    id="btnSubmit">Register</button>
             </form>
             <a href="#" class="forgot-password">
                 Signup with Google
