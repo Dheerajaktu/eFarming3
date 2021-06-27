@@ -12,7 +12,7 @@ router.get('/login', function (req, res, next) {
 });
 
 router.get('/register', function (req, res) {
-  res.render('register', { title: 'Register' });
+  res.render('register', { title: 'Register', success: '' });
 });
 router.post('/register', controller.newUserRegister);
 

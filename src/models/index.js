@@ -15,6 +15,5 @@ const sequelize = new Sequelize(process.env.DB, 'SA', process.env.PASSWORD, {
 const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.users = require('./user')(sequelize, Sequelize);
-// console.log('---models---', db);
+db.users = require('./users')(sequelize, Sequelize);
 module.exports = db;

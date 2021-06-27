@@ -1,15 +1,14 @@
-const models = require('../models/user');
+const models = require('../models');
 
 
 exports.newUserRegister = (req, res) => {
-    console.log('--controller req---', req.body);
     if (req.body.firstName && req.body.email && req.body.password && req.body.mobileNumber) {
         const data = {
-            firstName: req.body.firstname,
+            firstName: req.body.firstName,
             middleName: req.body.middleName || null,
             lastName: req.body.lastName || null,
-            email: req.body.email,
-            password: req.body.password,
+            email: req.body.email || null,
+            password: req.body.password || null,
             mobileNumber: req.body.mobileNumber,
             alternateMobileNumber: req.body.alternateMobileNumber || null,
             profilePicture: req.body.profilePicture || null,
@@ -28,10 +27,10 @@ exports.newUserRegister = (req, res) => {
             descriptionAboutUser: req.body.descriptionAboutUser || null
 
         }
-        // data.password = bcrypt.hash(req.body.password, 10);
-        console.log('--data obj---', models, models.User, models.user, models.users, models.Users);
+        console.log('--controller req---', data);
         return models.users.create(data).then((response) => {
-            res.json({ status: 'success', data: response })
+            // res.json({ status: 'success', data: response })
+            res.render('register', { success: 'You Registered Sucessfully' })
         }).catch((error) => {
             res.json({ status: 'error', message: error })
         })

@@ -1,5 +1,5 @@
+'use stict'
 module.exports = (sequelize, Sequelize) => {
-
     const User = sequelize.define('users', {
 
         userID: {
@@ -26,12 +26,12 @@ module.exports = (sequelize, Sequelize) => {
         },
         email: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: true,
             field: `email`
         },
         password: {
             type: Sequelize.STRING,
-            allowNull: false,
+            allowNull: true,
             field: `password`
         },
         mobileNumber: {
@@ -51,12 +51,12 @@ module.exports = (sequelize, Sequelize) => {
         },
         verifiedUser: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            allowNull: true,
             field: `verifiedUser`,
         },
         activeUser: {
             type: Sequelize.INTEGER,
-            allowNull: false,
+            allowNull: true,
             field: `activeUser`,
         },
         state: {
