@@ -1,124 +1,101 @@
-'use stict'
-module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define('users', {
+const mongoose = require('mongoose');
 
-        userID: {
-            type: Sequelize.INTEGER,
-            autoIncrement: true,
-            primaryKey: true,
-            allowNull: false,
-            field: `userID`
-        },
-        firstName: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            field: `firstName`
-        },
-        middleName: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `middleName`
-        },
-        lastName: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `lastName`
-        },
-        email: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `email`
-        },
-        password: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `password`
-        },
-        mobileNumber: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            field: `mobileNumber`
-        },
-        alternateMobileNumber: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `alternateMobileNumber`
-        },
-        profilePicture: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `profilePicture`
-        },
-        verifiedUser: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-            field: `verifiedUser`,
-        },
-        activeUser: {
-            type: Sequelize.INTEGER,
-            allowNull: true,
-            field: `activeUser`,
-        },
-        state: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `state`
-        },
-        country: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `country`
-        },
-        countryCode: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `countryCode`
-        },
-        district: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `district`
-        },
-        city: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `city`
-        },
-        pinCode: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `pinCode`
-        },
-        zipCode: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `zipCode`
-        },
-        longitude: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `longitude`
-        },
-        lattitude: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `lattitude`
-        },
-        address: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `address`
-        },
-        descriptionAboutUser: {
-            type: Sequelize.STRING,
-            allowNull: true,
-            field: `descriptionAboutUser`
-        },
+const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true,
+        max: 25
     },
-        {
-            timestamps: false
-        });
+    lastName: {
+        type: String,
+        required: false,
+        max: 40
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        max: 60
+    },
+    password: {
+        type: String,
+        require: true,
+        min: 5,
+        max: 16
+    },
+    mobileNumber: {
+        type: String,
+        required: true,
+        unique: true,
+        max: 12
+    },
+    alternateMobileNumber: {
+        type: String,
+        require: false,
+        max: 12
+    },
+    profilePicture: {
+        type: String,
+        default: ''
+    },
+    verifiedUser: {
+        type: Boolean,
+        default: false
+    },
+    activeUser: {
+        type: Boolean,
+        default: false
+    },
+    state: {
+        type: String,
+        required: false
+    },
+    country: {
+        type: String,
+        required: false
+    },
+    countryCode: {
+        type: String,
+        required: false,
+        max: 6
+    },
+    district: {
+        type: String,
+        required: false,
+        max: 40
+    },
+    city: {
+        type: String,
+        required: false,
+        max: 40
+    },
+    pinCode: {
+        type: String,
+        required: false,
+        max: 8
+    },
+    longitude: {
+        type: Object,
+        required: false
+    },
+    lattitude: {
+        type: Object,
+        required: false
+    },
+    address: {
+        type: String,
+        required: false,
+        max: 150
+    },
+    descriptionAboutUser: {
+        type: String,
+        required: false,
+        max: 400
 
-    return User;
+    }
+}, { timestamps: true })
 
-}
+module.exports = mongoose.model('User', userSchema);
+
+
+
