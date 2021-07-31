@@ -15,7 +15,7 @@ const usersRouter = require('./src/routes/User');
 
 console.log('-------DB URL------------', process.env.DB_URL);
 /* DB Connection */
-mongoose.connect(process.env.DB_URL, {
+mongoose.connect('mongodb+srv://db-efarming-development:DB@12345@cluster0.p27k7.mongodb.net/efarming-development?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
