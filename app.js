@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-const mongoose = require('mongoose');
 const path = require('path');
 const port = process.env.PORT || 4000;
+const mongoose = require('mongoose');
+require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require('body-parser')
@@ -13,7 +14,6 @@ const indexRouter = require('./src/routes/index');
 const usersRouter = require('./src/routes/User');
 
 console.log('-------DB URL------------', process.env.DB_URL);
-require('dotenv').config();
 /* DB Connection */
 mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
