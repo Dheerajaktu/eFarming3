@@ -13,6 +13,7 @@ const helmet = require('helmet');
 const indexRouter = require('./src/routes/index');
 const usersRouter = require('./src/routes/User');
 
+console.log('-------DB URL------------', process.env.DB_URL);
 /* DB Connection */
 mongoose.connect(process.env.DB_URL, {
   useNewUrlParser: true,
