@@ -3,22 +3,18 @@
 $(document).on('keyup', '#confirmPassword', () => {
     const passwordVal = $('#password').val();
     let confirmPasswordVal = $('#confirmPassword').val();
-    console.log('---here---', passwordVal, confirmPasswordVal);
     if (confirmPasswordVal === passwordVal) {
         $('#confirmPassword').css('border-color', 'green');
-        // $('#btnSubmit').prop("disabled", false).css('cursor', 'not-allowed');
     } else {
         $('#confirmPassword').css('border-color', 'red');
     }
 })
 
-
-
 window.setTimeout(function () {
-    $("#showSucessAlert").fadeTo(500, 0).slideUp(500, function () {
+    $("#showSucessAlert").fadeTo(1000, 0).slideUp(1000, function () {
         $(this).remove();
     });
-}, 2000);
+}, 3000);
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
@@ -30,3 +26,17 @@ if (navigator.geolocation) {
 $.getJSON("http://jsonip.com?callback=?", function (data) {
     console.log("Your ip: " + data.ip);
 });
+
+/* const fullUrl = window.location.href;
+console.log('hererhe', fullUrl);
+if (fullUrl.includes('/home')) {
+
+    $('#logoutUser').show();
+    $('#signUpUser').hide();
+    $('#loginUser').hide();
+} else {
+
+    $('#logoutUser').hide();
+}
+
+*/

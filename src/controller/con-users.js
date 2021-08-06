@@ -37,3 +37,7 @@ exports.newUserRegister = async (req, res) => {
     }
 }
 
+exports.onLoginSuccess = (req, res) => {
+    console.log('---on login success---', req.body);
+    res.render('home');
+}

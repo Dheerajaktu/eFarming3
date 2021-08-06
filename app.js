@@ -11,9 +11,32 @@ const session = require('express-session');
 const passport = require('passport');
 const helmet = require('helmet');
 const indexRouter = require('./src/routes/index');
-const usersRouter = require('./src/routes/User');
+const flash = require('connect-flash');
+// const usersRouter = require('./src/routes/User');
 
-console.log('-------DB URL------------', process.env.DB_URL);
+app.use(cookieParser('secret'));
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+  maxAge: 1800000
+
+}))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
+
+/* Global Variables */
+app.use((req, res, next) => {
+  res.locals.successMessage = req.flash('successMessage');
+  res.locals.errorMessage = req.flash('errorMessage');
+  res.locals.error = req.flash('error');
+  res.locals.user = req.flash('user');
+  next();
+})
+
 /* DB Connection */
 mongoose.connect('mongodb+srv://db-efarming-development:DB@12345@cluster0.p27k7.mongodb.net/efarming-development?retryWrites=true&w=majority', {
   useNewUrlParser: true,
@@ -39,7 +62,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src/public')));
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+// app.use('/user', usersRouter);
 
 app.listen(port, () => {
   console.log('server started at port 4000');
