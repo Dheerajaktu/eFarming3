@@ -17,10 +17,13 @@
         <div class="card card-container" style="padding-bottom:10px;opacity: 0.9;">
             <% if(success !='' ) {%>
                 <div class="alert alert-success" role="alert" id="showSucessAlert">
-                    <strong><%= success %></strong>
+                    <strong>
+                        <%= success %>
+                    </strong>
                 </div>
                 <% } %>
-         
+
+
                     <p id="profile-name" class="profile-name-card"></p>
                     <form class="form-signin" style="margin-top: -50px;" id="registerationForm" method="POST"
                         action="/register">
@@ -37,6 +40,7 @@
                             required autofocus style="margin-top: 8px;">
                         <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm Password"
                             required>
+                        <span style="font-size: 10px;color:green">Password: Max length: 16 & Min length: 3</span>
                         <br>
                         <button class="btn btn-lg btn-success btn-block btn-signin" type="submit"
                             id="btnSubmit">Register</button>
@@ -47,6 +51,7 @@
                     <a href="/login" class="forgot-password">
                         Go to Login
                     </a>
+
         </div>
     </main>
 

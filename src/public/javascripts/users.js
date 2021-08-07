@@ -4,9 +4,9 @@ $(document).on('keyup', '#confirmPassword', () => {
     const passwordVal = $('#password').val();
     let confirmPasswordVal = $('#confirmPassword').val();
     if (confirmPasswordVal === passwordVal) {
-        $('#confirmPassword').css('border-color', 'green');
+        $('#confirmPassword').css('border', '3px solid green');
     } else {
-        $('#confirmPassword').css('border-color', 'red');
+        $('#confirmPassword').css('border', '3px solid red');
     }
 })
 
@@ -41,10 +41,8 @@ if (fullUrl.includes('/home')) {
 
 */
 $(document).on('click', '#toggleButtonOpen', function open() {
-    console.log('---here opn---');
     document.getElementById("mySidenav").style.width = "190px";
 });
 $(document).on('click', '#toggleButtonClose', function close() {
-    console.log('---here close---');
     document.getElementById("mySidenav").style.width = "0";
 });

@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         require: true,
-        min: 5,
+        min: 3,
         max: 16
     },
     mobileNumber: {

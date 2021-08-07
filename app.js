@@ -12,7 +12,7 @@ const passport = require('passport');
 const helmet = require('helmet');
 const indexRouter = require('./src/routes/index');
 const flash = require('connect-flash');
-// const usersRouter = require('./src/routes/User');
+const usersRouter = require('./src/routes/user');
 
 app.use(cookieParser('secret'));
 app.use(session({
@@ -62,7 +62,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'src/public')));
 app.use('/', indexRouter);
-// app.use('/user', usersRouter);
+app.use('/user', usersRouter);
 
 app.listen(port, () => {
   console.log('server started at port 4000');

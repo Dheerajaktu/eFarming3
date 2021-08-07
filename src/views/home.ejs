@@ -4,51 +4,6 @@
 <head>
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/home.css">
-        <style>
-            .sidenav {
-                height: 100%;
-                width: 0;
-                position: fixed;
-                left: 0;
-                /* z-index: 1; */
-                background-color: #648E06;
-                overflow-x: hidden;
-                transition: 0.5s;
-                padding-top: 60px;
-                color: ivory;
-            }
-
-            .sidenav a {
-                padding: 8px 8px 8px 32px;
-                text-decoration: none;
-                font-size: 15px;
-                color: ivory;
-                display: block;
-                transition: 0.3s;
-            }
-
-            .sidenav a:hover {
-                color: lime;
-            }
-
-            .sidenav .closebtn {
-                position: absolute;
-                top: 0;
-                right: 25px;
-                font-size: 36px;
-                margin-left: 50px;
-            }
-
-            @media screen and (max-height: 450px) {
-                .sidenav {
-                    padding-top: 15px;
-                }
-
-                .sidenav a {
-                    font-size: 18px;
-                }
-            }
-        </style>
         <script src="javascripts/users.js"></script>
 </head>
 
@@ -59,7 +14,7 @@
     <main>
         <div id="mySidenav" class="sidenav" style="top: 50px;">
             <a href="javascript:void(0)" class="closebtn" id="toggleButtonClose">&times;</a>
-            <a href="#">Dashboard</a>
+            <a href="/home">Dashboard</a>
             <a href="#">Profile</a>
             <a href="#">Add Products</a>
             <a href="#">See All Products</a>
@@ -137,11 +92,17 @@
                     <div class="title">Available in Bareilly</div>
                 </div>
             </div>
+            <div class="tile job resource">
+                <div class="header">
+                    <div class="count">100</div>
+                    <div class="title">Demo</div>
+                </div>
+                <div class="body">
+                    <div class="title">New Products Info</div>
+                </div>
+            </div>
+
         </div>
-
-
-
-
 
     </main>
     <footer>
