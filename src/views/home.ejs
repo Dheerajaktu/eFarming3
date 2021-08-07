@@ -3,19 +3,147 @@
 
 <head>
     <%- include('layout/head.ejs')%>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="stylesheets/home.css">
+        <style>
+            .sidenav {
+                height: 100%;
+                width: 0;
+                position: fixed;
+                left: 0;
+                /* z-index: 1; */
+                background-color: #648E06;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                color: ivory;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 15px;
+                color: ivory;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav a:hover {
+                color: lime;
+            }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+
+            @media screen and (max-height: 450px) {
+                .sidenav {
+                    padding-top: 15px;
+                }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+            }
+        </style>
+        <script src="javascripts/users.js"></script>
 </head>
 
-<body class="container" style="">
-
+<body class="container">
     <header>
         <%- include('layout/header.ejs')%>
     </header>
-
     <main>
-        <h1>Welcome to Home</h1>
-    </main>
+        <div id="mySidenav" class="sidenav" style="top: 50px;">
+            <a href="javascript:void(0)" class="closebtn" id="toggleButtonClose">&times;</a>
+            <a href="#">Dashboard</a>
+            <a href="#">Profile</a>
+            <a href="#">Add Products</a>
+            <a href="#">See All Products</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Connections</a>
+            <a href="#">See Fertilizers</a>
+            <a href="#">See Crops</a>
+            <a href="#">Mandi & Market</a>
+            <a href="#">Market Demand</a>
+            <a href="#">See Weather</a>
+            <a href="#">Machines & Equipments</a>
+            <a href="#">Machines on Rent</a>
+            <a href="#">Buy Land</a>
+            <a href="#">Sell Land</a>
+            <a href="#">See About Loan</a>
+            <a href="#">Raise Complain</a>
+            <a href="#">Govt. Schemes</a>
+            <a href="#">Customer Care</a>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        <span style="font-size:30px;cursor:pointer;" id="toggleButtonOpen">&#9776;</span>
 
+
+        <div class="container-fluid">
+            <div class="tile job resource">
+                <div class="header">
+                    <div class="count">1</div>
+                    <div class="title">Jobs</div>
+                </div>
+                <div class="body">
+                    <div class="title">New Products</div>
+                </div>
+            </div>
+            <div class="tile job">
+                <div class="header">
+                    <div class="count">4</div>
+                    <div class="title">Crops</div>
+                </div>
+                <div class="body">
+                    <div class="title">Availability True</div>
+                </div>
+            </div>
+            <div class="tile wide resource">
+                <div class="header">
+                    <div class="left">
+                        <div class="count">2</div>
+                        <div class="title">Resources</div>
+                    </div>
+                    <div class="right">
+                        <div class="count">34</div>
+                        <div class="title">Market Demand</div>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title">Mandi Activs are UP State</div>
+                </div>
+            </div>
+            <div class="tile wide quote">
+                <div class="header">
+                    <div class="left">
+                        <div class="count">5</div>
+                        <div class="title">Ton</div>
+                    </div>
+                    <div class="right">
+                        <div class="count">2000</div>
+                        <div class="title">Buy Now</div>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title">Available in Bareilly</div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </main>
     <footer>
         <%- include('layout/footer.ejs')%>
     </footer>

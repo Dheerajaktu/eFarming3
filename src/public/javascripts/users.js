@@ -18,14 +18,14 @@ window.setTimeout(function () {
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition => {
-        console.log('---location---', showPosition);
-    });
-}
-$.getJSON("http://jsonip.com?callback=?", function (data) {
-    console.log("Your ip: " + data.ip);
-});
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(showPosition => {
+//         console.log('---location---', showPosition);
+//     });
+// }
+// $.getJSON("http://jsonip.com?callback=?", function (data) {
+//     console.log("Your ip: " + data.ip);
+// });
 
 /* const fullUrl = window.location.href;
 console.log('hererhe', fullUrl);
@@ -40,3 +40,11 @@ if (fullUrl.includes('/home')) {
 }
 
 */
+$(document).on('click', '#toggleButtonOpen', function open() {
+    console.log('---here opn---');
+    document.getElementById("mySidenav").style.width = "190px";
+});
+$(document).on('click', '#toggleButtonClose', function close() {
+    console.log('---here close---');
+    document.getElementById("mySidenav").style.width = "0";
+});

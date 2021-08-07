@@ -28,7 +28,7 @@ exports.newUserRegister = async (req, res) => {
                 descriptionAboutUser: req.body.descriptionAboutUser || null
             })
             const user = await newUser.save();
-            res.render('register', { success: 'You Registered Sucessfully', user: user })
+            res.render('register', { success: 'You Registered Sucessfully', user: user.firstName })
         } catch (e) {
             res.json({ status: 'error', message: `Server Error ${e}` })
         }

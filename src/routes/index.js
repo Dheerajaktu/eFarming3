@@ -29,9 +29,8 @@ router.post('/register', controller.newUserRegister);
 /* Home page if user login success */
 router.get('/home', isLoggedIn, function (req, res) {
   res.render('home', {
-    user: req.user.firstname
+    user: req.user.firstName
   });
-  console.log('---home get called---', req.user);
 });
 router.post('/login', (req, res, next) => {
   console.log('---login post called---', req.isAuthenticated());
