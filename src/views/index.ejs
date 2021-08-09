@@ -3,8 +3,8 @@
 
 <head>
     <%- include('layout/head.ejs')%>
-    <link rel="stylesheet" href="stylesheets/home.css">
-    <script src="javascripts/users.js"></script>
+        <link rel="stylesheet" href="stylesheets/home.css">
+        <script src="javascripts/users.js"></script>
 </head>
 
 <body class="container">
@@ -15,54 +15,69 @@
 
     <main>
         <%- include('layout/sidenav.ejs')%>
-        <div class="container">
+            <div class="container">
 
-            <% for (var i=1; i <=10; i++ ) { %>
-                <br />
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
-                                    <small class="ml-1"></small> </div> <img src="/images/color.png"
-                                    width="20">
+                <% for (var i=1; i <=10; i++ ) { %>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
+                                        <small class="ml-1"></small>
+                                    </div> <img src="/images/color.png" width="20">
+                                </div>
+                                <div class="text-center"> <img src="/images/p1.jpg" width="250" height="250"> </div>
+                                <div class="text-center">
+                                    <h5>Wheat in Bareilly</h5> <span class="text-success">$2/kg</span>
+                                </div>
+                                <button type="button" class="btn btn-sm mr-1 my-1"
+                                    style="background-color: #648E06;color:ivory"><i
+                                        class="fas fa-shopping-cart pr-2"></i>Contact Seller</button>
+                                <button type="button" class="btn btn-light btn-sm mr-1 my-1"><i
+                                        class="fas fa-info-circle pr-2"></i>Details</button>
                             </div>
-                            <div class="text-center"> <img src="/images/p1.jpg" width="250" height="250"> </div>
-                            <div class="text-center">
-                                <h5>Wheat in Bareilly</h5> <span class="text-success">$2/kg</span>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
+                                        <small class="ml-1 text-primary"></small>
+                                    </div> <img src="/images/color.png" width="20">
+                                </div>
+                                <div class="text-center"> <img src="/images/p3.jpg" width="250" height="250"> </div>
+                                <div class="text-center">
+                                    <h5>Rice Crop in Pilibhit</h5> <span class="text-success">$3/kg</span>
+                                </div>
+                                <button type="button" class="btn btn-sm mr-1 my-1"
+                                    style="background-color: #648E06;color:ivory"><i
+                                        class="fas fa-shopping-cart pr-2"></i>Contact Seller</button>
+                                <button type="button" class="btn btn-light btn-sm mr-1 my-1"><i
+                                        class="fas fa-info-circle pr-2"></i>Details</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
+                                        <small class="ml-1"></small>
+                                    </div> <img src="/images/color.png" width="20">
+                                </div>
+                                <div class="text-center"> <img src="/images/p4.jpg" width="250" height="250"> </div>
+                                <div class="text-center">
+                                    <h5>Buy Corn in Puranpur</h5> <span class="text-success">$2/kg</span>
+                                </div>
+                                <button type="button" class="btn btn-sm mr-1 my-1"
+                                    style="background-color: #648E06;color:ivory"><i
+                                        class="fas fa-shopping-cart pr-2"></i>Contact Seller</button>
+                                <button type="button" class="btn btn-light btn-sm mr-1 my-1"><i
+                                        class="fas fa-info-circle pr-2"></i>Details</button>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
-                                    <small class="ml-1 text-primary"></small> </div> <img
-                                    src="/images/color.png" width="20">
-                            </div>
-                            <div class="text-center"> <img src="/images/p3.jpg" width="250" height="250"> </div>
-                            <div class="text-center">
-                                <h5>Rice Crop in Pilibhit</h5> <span class="text-success">$3/kg</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="d-flex flex-row align-items-center time"> <i class="fa fa-clock-o"></i>
-                                    <small class="ml-1"></small> </div> <img src="/images/color.png"
-                                    width="20">
-                            </div>
-                            <div class="text-center"> <img src="/images/p4.jpg" width="250" height="250"> </div>
-                            <div class="text-center">
-                                <h5>Buy Corn in Puranpur</h5> <span class="text-success">$2/kg</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <% } %>
-        </div>
+                    <% } %>
+            </div>
     </main>
 
     <footer>
