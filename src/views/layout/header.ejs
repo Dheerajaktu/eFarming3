@@ -1,49 +1,37 @@
-<header id="header" class="fixed-top header-inner-pages">
+<header id="header" class="fixed-top header-inner-pages" style="height: 60px;">
     <div class="container d-flex align-items-center">
-        <p class="logo me-auto"><a href="/" style="font-size: 30px!important;">e-Farming
-                <% if(user!='' ) {%>
-                    <span style="font-size: 10px;">Welcome <%= user %></span>
-                    <%}%>
-        </p></a>
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li><a class="nav-link scrollto " href="#">Home</a></li>
-                <li><a class="nav-link scrollto" href="#">About</a></li>
-                <li><a class="nav-link scrollto" href="#">Services</a></li>
-                <!-- <li><a class="nav-link   scrollto" href="#">Cart</a></li> -->
-                <li><a class="nav-link scrollto" href="#">Wishlist</a></li>
-                <!-- <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down"></i></a>
+        <% if(user!='' ) {%>
+            <span style="font-size:30px;cursor:pointer;color: ivory;float: left;" id="toggleButtonOpen">&#9776;</span>
+            <%}%>
+
+                <p class="logo me-auto"><a href="/" style="font-size: 30px!important;">e-Farming
+                        <% if(user!='' ) {%>
+                            <span style="font-size: 10px;">Welcome <%= user %></span>
+                            <%}%>
+                </p></a>
+                <nav id="navbar" class="navbar">
                     <ul>
-                        <li><a href="#">Goods</a></li>
-                        <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-right"></i></a>
+                        <li><a class="nav-link scrollto " href="/home">Home</a></li>
+                        <li><a class="nav-link scrollto" href="#">About</a></li>
+                        <li><a class="nav-link scrollto" href="/services">Services</a></li>
+                        <li><a class="nav-link scrollto" href="#">Wishlist</a></li>
+                        <li class="dropdown"><a href="#"><span>Activity</span> <i class="bi bi-chevron-down"></i></a>
                             <ul>
-                                <li><a href="#">Products 1</a></li>
-                                <li><a href="#">Products 2</a></li>
-                                <li><a href="#">Products 3</a></li>
-                                <li><a href="#">Products 4</a></li>
-                                <li><a href="#">Products 5</a></li>
+                                <li><a class="nav-link scrollto" href="/login" id="loginUser">Account</a></li>
+                                <li><a class="nav-link scrollto" href="/login" id="loginUser">Settings</a></li>
+                                <%if(!user) {%>
+                                    <li><a class="nav-link scrollto" href="/login" id="loginUser">Login</a></li>
+                                    <%}%>
+                                        <li><a class="nav-link scrollto" href="/register" id="signUpUser">Register</a>
+                                        </li>
+                                        <%if(user) {%>
+                                            <li><a class="nav-link scrollto" href="/logout" id="logoutUser">Logout</a>
+                                            </li>
+                                            <%}%>
                             </ul>
                         </li>
-                        <li><a href="#">Products A</a></li>
-                        <li><a href="#">Products B</a></li>
-                        <li><a href="#">Products C</a></li>
                     </ul>
-                </li> -->
-                <li class="dropdown"><a href="#"><span>Activity</span> <i class="bi bi-chevron-down"></i></a>
-                    <ul>
-                        <li><a class="nav-link scrollto" href="/login" id="loginUser">Account</a></li>
-                        <li><a class="nav-link scrollto" href="/login" id="loginUser">Settings</a></li>
-                        <%if(!user) {%>
-                        <li><a class="nav-link scrollto" href="/login" id="loginUser">Login</a></li>
-                        <%}%>
-                        <li><a class="nav-link scrollto" href="/register" id="signUpUser">Register</a></li>
-                        <%if(user) {%>
-                            <li><a class="nav-link scrollto" href="/logout" id="logoutUser">Logout</a></li>
-                        <%}%>
-                    </ul>
-                </li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
     </div>
 </header>

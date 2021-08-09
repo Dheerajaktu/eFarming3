@@ -1,5 +1,8 @@
 // const { default: swal } = require("sweetalert");
 
+
+
+
 $(document).on('keyup', '#confirmPassword', () => {
     const passwordVal = $('#password').val();
     let confirmPasswordVal = $('#confirmPassword').val();
