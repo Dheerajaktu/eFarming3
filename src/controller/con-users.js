@@ -61,3 +61,23 @@ exports.newUserRegister = async (req, res) => {
     }
 }
 
+
+
+module.exports.loginPage = (req, res) => {
+    res.render('login', { title: 'Login' });
+}
+
+module.exports.registerPage = (req, res) => {
+    res.render('register', { title: 'Register', success: '' });
+}
+
+module.exports.onloginSuccess = (req, res) => {
+    res.render('home', {
+        user: req.user.firstName
+    });
+}
+
+
+module.exports.userProfile = (req, res) => {
+    res.render('profile', { user: req.user.firstName });
+}
