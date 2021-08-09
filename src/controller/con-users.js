@@ -81,5 +81,12 @@ module.exports.onloginSuccess = (req, res) => {
 module.exports.userProfile = async (req, res) => {
     const email = req.body.email;
     const data = await User.findOne(email);
-    res.render('profile', { user: data.firstName, user1: data, title: 'Profile' });
+    console.log('-------PROFILE DATA-------', data);
+    if (data) {
+        res.render('profile', { user: data.firstName, user1: data, title: 'Profile' });
+    }
+    else {
+        if (data) res.render('profile');
+    }
+
 }

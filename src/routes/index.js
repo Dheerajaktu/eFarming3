@@ -19,7 +19,7 @@ function isLoggedIn(req, res, next) {
 
 /* ------------------GET Index page-------------------*/
 router.get('/', function (req, res, next) {
-
+  console.log('---------INDEX USER-------', req.user);
   if (req.user) {
     res.render('index', { title: 'Index', user: req.user.firstName });
   } else {
