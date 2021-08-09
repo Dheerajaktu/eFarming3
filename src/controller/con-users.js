@@ -78,6 +78,8 @@ module.exports.onloginSuccess = (req, res) => {
 }
 
 
-module.exports.userProfile = (req, res) => {
-    res.render('profile', { user: req.user.firstName });
+module.exports.userProfile = async (req, res) => {
+    const email = req.body.email;
+    const data = await User.findOne(email);
+    res.render('profile', { user: data.firstName, user1: data, title: 'Profile' });
 }
