@@ -73,20 +73,20 @@ module.exports.registerPage = (req, res) => {
 
 module.exports.onloginSuccess = (req, res) => {
     res.render('home', {
-        user: req.user.firstName
+        user: req.user.firstName,
+        user1: req.user
     });
 }
 
 
 module.exports.userProfile = async (req, res) => {
     const email = req.body.email;
-    const data = await User.findOne(email);
-    console.log('-------PROFILE DATA-------', data);
+    const data = await User.findOne({ _id: req.user._id });
     if (data) {
         res.render('profile', { user: data.firstName, user1: data, title: 'Profile' });
     }
     else {
-        if (data) res.render('profile');
+        res.render('login');
     }
 
 }

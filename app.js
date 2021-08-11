@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const bodyParser = require('body-parser')
 const session = require('express-session');
 const passport = require('passport');
 const helmet = require('helmet');
@@ -22,7 +21,6 @@ app.use(session({
   maxAge: 1800000
 
 }))
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -50,17 +48,20 @@ mongoose.connect('mongodb+srv://db-efarming-development:DB@12345@cluster0.p27k7.
   console.log('Erro while Connecting DB', e);
 }))
 
-// view engine setup
-app.set('views', path.join(__dirname, 'src/views'));
-app.set('view engine', 'ejs');
 
 /* Middleware */
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(helmet());
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+// view engine setup
+app.set('views', path.join(__dirname, 'src/views'));
 app.use(express.static(path.join(__dirname, 'src/public')));
+app.set('view engine', 'ejs');
+
+
 app.use('/', indexRouter);
 // app.use('/user', usersRouter);
 

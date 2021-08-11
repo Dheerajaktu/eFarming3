@@ -18,8 +18,7 @@ function isLoggedIn(req, res, next) {
 
 
 /* ------------------GET Index page-------------------*/
-router.get('/', function (req, res, next) {
-  console.log('---------INDEX USER-------', req.user);
+router.get('/', (req, res) => {
   if (req.user) {
     res.render('index', { title: 'Index', user: req.user.firstName });
   } else {
@@ -40,10 +39,7 @@ router.post('/login', (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 })
-router.get('/logout', (req, res) => {
-  req.logOut();
-  res.redirect('/');
-})
+
 
 /*------------------User Profile-----------------*/
 router.get('/profile', isLoggedIn, controller.userProfile);
@@ -73,6 +69,11 @@ router.get('/customare-care', isLoggedIn, other.customerCareHome);
 
 
 
+/*--------------user Logout--------------------*/
+router.get('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/');
+})
 
 
 module.exports = router;
