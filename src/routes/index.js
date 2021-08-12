@@ -43,7 +43,7 @@ router.post('/login', (req, res, next) => {
 
 /*------------------User Profile-----------------*/
 router.get('/profile', isLoggedIn, controller.userProfile);
-
+router.post('/updateProfile/:id', isLoggedIn, controller.updateUserProfile);
 
 
 /*------------------(con-products.js)-----------------*/

@@ -1,7 +1,3 @@
-// const { default: swal } = require("sweetalert");
-
-
-
 
 $(document).on('keyup', '#confirmPassword', () => {
     const passwordVal = $('#password').val();
@@ -21,31 +17,40 @@ window.setTimeout(function () {
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
-// if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition => {
-//         console.log('---location---', showPosition);
-//     });
-// }
-// $.getJSON("http://jsonip.com?callback=?", function (data) {
-//     console.log("Your ip: " + data.ip);
-// });
 
-/* const fullUrl = window.location.href;
-console.log('hererhe', fullUrl);
-if (fullUrl.includes('/home')) {
-
-    $('#logoutUser').show();
-    $('#signUpUser').hide();
-    $('#loginUser').hide();
-} else {
-
-    $('#logoutUser').hide();
-}
-
-*/
 $(document).on('click', '#toggleButtonOpen', function open() {
     document.getElementById("mySidenav").style.width = "190px";
 });
 $(document).on('click', '#toggleButtonClose', function close() {
     document.getElementById("mySidenav").style.width = "0";
 });
+
+/*----------update user's details---------*/
+$(document).on('click', '#saveProfileButton', () => {
+    const name = $('#firstName').val();
+    const number = $('#mobileNumber').val();
+    const email = $('#email').val();
+    if (name != '' && number != '' && email != '') {
+
+        let data = {};
+        $.each($('#profileForm').serializeArray(), function fieldValues() {
+            data[this.name] = this.value;
+        });
+        const userID = $('#hiddenfield').val();
+        console.log('---form data-----', data, userID);
+        const URL = `updateProfile/${userID}`
+        $.ajax({
+            url: URL,
+            data,
+            type: 'POST'
+        }).then(response => {
+            if (response.status == '200') {
+                alert('Profile Updated Successfully')
+            } else {
+                alert('Error While Updating Profile')
+            }
+        })
+
+    }
+
+})
