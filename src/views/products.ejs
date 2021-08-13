@@ -5,6 +5,18 @@
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/home.css">
         <script src="javascripts/users.js"></script>
+
+        <style>
+            a {
+                font-size: 15px;
+                font-family: sans-serif;
+            }
+
+            .card {
+                color: ivory;
+                background-color: #609931;
+            }
+        </style>
 </head>
 
 <body class="container">
@@ -14,7 +26,138 @@
     <main>
         <%- include('layout/sidenav.ejs')%>
 
-        <h1>Product Page</h1>
+            <div class="container-fluid">
+
+                <div class="div">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card shadow m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">New Products</h5>
+                                    <a href="#" style="color: ivory;">Add Products</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card shadow m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">See All Products(60)</h5>
+                                    <a href="#" style="color: ivory;">Show Products</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <div class="card shadow m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">To Do</h5>
+                                    <a href="#" style="color: ivory;">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card shadow m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">To Do</h5>
+                                    <a href="#" style="color: ivory;">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="table-responsive">
+
+                    <!--Table-->
+                    <table class="table">
+
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="th-lg">Product Name</th>
+                                <th class="th-lg">Description</th>
+                                <th class="th-lg">Product Image</th>
+                                <th class="th-lg">Action</th>
+                            </tr>
+                        </thead>
+
+                        <% for (var i=1; i <=10; i++ ) { %>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Fresh Wheat</td>
+                                    <td>----------------</td>
+                                    <td>
+                                        <div class=""> <img src="/images/p1.jpg" width="100" height="100"> </div>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <a href="#">View</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Edit</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Delete</a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Fresh Paddy</td>
+                                    <td>--------------</td>
+                                    <td>
+                                        <div class=""> <img src="/images/p3.jpg" width="100" height="100"> </div>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <a href="#">View</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Edit</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Delete</a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Corn</td>
+                                    <td>-----------------</td>
+                                    <td>
+                                        <div class=""> <img src="/images/p4.jpg" width="100" height="100"> </div>
+                                    </td>
+                                    <td>
+                                        <span>
+                                            <a href="#">View</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Edit</a>
+                                        </span>
+                                        <span>
+                                            <a href="#">Delete</a>
+                                        </span>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+
+                            <% } %>
+                    </table>
+
+
+                </div>
+
+            </div>
     </main>
     <footer>
         <%- include('layout/footer.ejs')%>
