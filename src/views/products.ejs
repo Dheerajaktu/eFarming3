@@ -16,6 +16,15 @@
                 color: ivory;
                 background-color: #609931;
             }
+
+            ::-webkit-input-placeholder {
+                font-size: 10px;
+            }
+
+            label {
+                font-size: 10px;
+                font-family: 'Open Sans', sans-serif;
+            }
         </style>
 </head>
 
@@ -34,7 +43,8 @@
                             <div class="card shadow m-2">
                                 <div class="card-body">
                                     <h5 class="card-title">New Products</h5>
-                                    <a href="#" style="color: ivory;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Products</a>
+                                    <a href="#" style="color: ivory;" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Add Products</a>
                                 </div>
                             </div>
                         </div>
@@ -72,24 +82,134 @@
                     <!-- Dynamic from start here-->
 
                     <div class="row">
-
-                        <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Products Details</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        ...
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Add Image
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="file" class="form-control" placeholder="" value="" name=""
+                                                    required id="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Product Title
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" placeholder="" value="" name=""
+                                                    required id="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label>Price
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" placeholder="" value="" name=""
+                                                    required id="">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>MOQ
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" placeholder="" value="" name=""
+                                                    required id="">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Phone Number
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="number" class="form-control" placeholder=""
+                                                    value="<%=user1.mobileNumber%>" name="" id="" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>State
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="text" class="form-control" placeholder=""
+                                                    value="<%=user1.state%>" name="" required id="" readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>District
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="" value="<%=user1.district%>" name="" required id=""
+                                                    readonly>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Pin Code
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <input type="number" class="form-control" placeholder="" value="<%=user1.pinCode%>"
+                                                    name="" id="" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label>Product Description
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <textarea type="text" class="form-control" name="" required
+                                                    id=""></textarea>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <label>Product Visibility
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    style="font-size: 12px;">
+                                                    <option selected>Select</option>
+                                                    <option value="1">District</option>
+                                                    <option value="2">State(Plus Customer)</option>
+                                                    <option value="3">Across Country(Premium Customer)</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Transportation
+                                                    <span style="color: red">*</span>
+                                                </label>
+                                                <select class="form-select" aria-label="Default select example"
+                                                    style="font-size: 12px;">
+                                                    <option selected>Select</option>
+                                                    <option value="1">Yes</option>
+                                                    <option value="2">No</option>
+                                                    <option value="2">May be</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Other</label>
+
+                                                <input type="text" class="form-control" name="" required id=""
+                                                    readonly></textarea>
+                                            </div>
+
+                                        </div>
+
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            data-bs-dismiss="modal">Reset</button>
+                                        <button type="button" class="btn btn-primary btn-sm">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +252,7 @@
                                     <td>Fresh Wheat</td>
                                     <td>
                                         <span>
-                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
+                                            <a href="#">View Details</a>
                                         </span>
                                     </td>
                                 </tr>

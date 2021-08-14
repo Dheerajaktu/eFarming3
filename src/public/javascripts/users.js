@@ -37,7 +37,6 @@ $(document).on('click', '#saveProfileButton', () => {
             data[this.name] = this.value;
         });
         const userID = $('#hiddenfield').val();
-        console.log('---form data-----', data, userID);
         const URL = `updateProfile/${userID}`
         $.ajax({
             url: URL,
