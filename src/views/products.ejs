@@ -34,7 +34,7 @@
                             <div class="card shadow m-2">
                                 <div class="card-body">
                                     <h5 class="card-title">New Products</h5>
-                                    <a href="#" style="color: ivory;">Add Products</a>
+                                    <a href="#" style="color: ivory;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Products</a>
                                 </div>
                             </div>
                         </div>
@@ -66,10 +66,43 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
+                    <!-- Dynamic from start here-->
+
+                    <div class="row">
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Dynamic from end here-->
                 </div>
             </div>
 
+            </div>
 
             <div>
                 <div class="table-responsive">
@@ -81,9 +114,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th class="th-lg">Product Name</th>
-                                <th class="th-lg">Description</th>
                                 <th class="th-lg">Product Image</th>
+                                <th class="th-lg">Product Name</th>
                                 <th class="th-lg">Action</th>
                             </tr>
                         </thead>
@@ -91,62 +123,20 @@
                         <% for (var i=1; i <=10; i++ ) { %>
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Fresh Wheat</td>
-                                    <td>----------------</td>
+                                    <th scope="row">
+                                        <%= i%>
+                                    </th>
                                     <td>
                                         <div class=""> <img src="/images/p1.jpg" width="100" height="100"> </div>
                                     </td>
+                                    <td>Fresh Wheat</td>
                                     <td>
                                         <span>
-                                            <a href="#">View</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Edit</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Delete</a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
                                         </span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Fresh Paddy</td>
-                                    <td>--------------</td>
-                                    <td>
-                                        <div class=""> <img src="/images/p3.jpg" width="100" height="100"> </div>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <a href="#">View</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Edit</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Delete</a>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Corn</td>
-                                    <td>-----------------</td>
-                                    <td>
-                                        <div class=""> <img src="/images/p4.jpg" width="100" height="100"> </div>
-                                    </td>
-                                    <td>
-                                        <span>
-                                            <a href="#">View</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Edit</a>
-                                        </span>
-                                        <span>
-                                            <a href="#">Delete</a>
-                                        </span>
-                                    </td>
-                                </tr>
+
 
                             </tbody>
 
@@ -159,6 +149,9 @@
 
             </div>
     </main>
+
+
+
     <footer>
         <%- include('layout/footer.ejs')%>
     </footer>
