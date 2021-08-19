@@ -94,15 +94,11 @@ module.exports.userProfile = async (req, res) => {
 
 
 module.exports.updateUserProfile = async (req, res) => {
-    console.log('----------con caled-------', req.params.id, req.user._id, req.body);
-    console.log('--con--true--');
     await User.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true }, (err, result) => {
 
         if (err) {
-            console.log('---con error---');
             res.status(500).json({ message: 'error While updating profile' });
         }
-        console.log('---------result-------', result);
         const response = {
             status: 200,
             message: 'success',

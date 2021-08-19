@@ -43,7 +43,8 @@
 
                 <div>
                     <label>Upload Photo</label>
-                    <input type="file" class="form-control" value="" placeholder="">
+                    <input type="file" class="form-control" value="" placeholder="" disabled style="cursor: not-allowed;">
+                    <span style="font-size: 9px;color: crimson;">Upload Photo Functionality is in progress, so you can't upload photo as of now Thank you!</span>
                 </div>
 
             </div>
@@ -57,21 +58,21 @@
                                     <span style="color: red">*</span>
                                 </label>
                                 <input type="text" class="form-control" placeholder="First name"
-                                    value="<%= user1.firstName%>" name="firstName" required id="firstName">
+                                    value="<%= user1.firstName%>" name="firstName" required id="firstName" readonly>
 
                             </div>
 
                             <div class="col-md-6">
                                 <label>Last name</label>
                                 <input type="text" class="form-control" value="<%= user1.lastName%>"
-                                    placeholder="Last name" name="lastName" required id="lastName">
+                                    placeholder="Last name" name="lastName" required id="lastName" readonly>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-12">
                                 <label>Email<span style="color: red">*</span></label>
                                 <input type="text" class="form-control" placeholder="Email" value="<%= user1.email%>"
-                                    name="email" required id="email">
+                                    name="email" required id="email" readonly>
                             </div>
 
                         </div>
@@ -79,37 +80,37 @@
                             <div class="col-md-4">
                                 <label>Primary Mobile Number<span style="color: red">*</span> </label>
                                 <input type="text" class="form-control" placeholder="Mobile Number"
-                                    value="<%= user1.mobileNumber%>" required name="mobileNumber" id="mobileNumber">
+                                    value="<%= user1.mobileNumber%>" required name="mobileNumber" id="mobileNumber" readonly>
                             </div>
                             <div class="col-md-4">
                                 <label>Alternate Mobile Number</label>
                                 <input type="text" class="form-control" value="<%= user1.alternateMobileNumber%>"
                                     placeholder="Alternate Mobile Number" name="alternateMobileNumber"
-                                    id="alternateMobileNumber">
+                                    id="alternateMobileNumber" readonly>
                             </div>
                             <div class="col-md-4">
                                 <label>Country</label>
                                 <input type="text" class="form-control" value="<%= user1.country%>"
-                                    placeholder="Country" name="country" id="country">
+                                    placeholder="Country" name="country" id="country" readonly>
                             </div>
                         </div>
                         <div class="row mt-2">
                             <div class="col-md-4">
                                 <label>State</label>
                                 <input type="text" class="form-control" placeholder="State" value="<%= user1.state%>"
-                                    name="state" id="state">
+                                    name="state" id="state" readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label>District</label>
                                 <input type="text" class="form-control" value="<%= user1.district%>"
-                                    placeholder="District" name="district" di="district">
+                                    placeholder="District" name="district" di="district" readonly>
                             </div>
 
                             <div class="col-md-4">
                                 <label>PIN Code</label>
                                 <input type="text" class="form-control" value="<%= user1.pinCode%>"
-                                    placeholder="Pin Code" name="pinCode" id="pinCode">
+                                    placeholder="Pin Code" name="pinCode" id="pinCode" readonly>
                             </div>
                         </div>
 
@@ -118,7 +119,7 @@
                             <div class="col-md-12">
                                 <label>Address</label>
                                 <input type="text" class="form-control" placeholder="Address"
-                                    value="<%= user1.address%>" id="address" name="address">
+                                    value="<%= user1.address%>" id="address" name="address" readonly>
                             </div>
                         </div>
 
@@ -126,33 +127,34 @@
                             <div class="col-md-4">
                                 <label>Account Verified</label>
                                 <input type="text" class="form-control" placeholder="" value="<%= user1.verifiedUser%>"
-                                    name="verifiedUser" id="accountVerified">
+                                    name="verifiedUser" id="accountVerified" readonly>
                             </div>
                             <div class="col-md-4">
                                 <label>other</label>
-                                <input type="text" class="form-control" placeholder="" value="" disabled>
+                                <input type="text" class="form-control" placeholder="To do" value="" disabled>
                             </div>
                             <div class="col-md-4">
                                 <label>other</label>
-                                <input type="text" class="form-control" placeholder="" value="" disabled>
+                                <input type="text" class="form-control" placeholder="To do" value="" disabled>
                             </div>
                         </div>
 
                         <div class="row">
 
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <div class="mt-3 text-right"><button class="btn btn-sm btn-success profile-button"
-                                        id="saveProfileButton" type="button">Save
-                                        Profile</button></div>
-
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="mt-3 text-right"><button class="btn btn-sm btn-danger profile-button"
-                                        type="button">Reset
+                                        id="saveProfileButton" type="button" disabled>Save<i class="bi bi-save"
+                                            style="padding-left: 5px;"></i>
                                     </button></div>
 
                             </div>
+                            <div class="col-md-2">
+                                <div class="mt-3 text-right"><button class="btn btn-sm btn-warning profile-button" id="editProfileButton"
+                                        type="button">Edit<i class="bi bi-pencil-square" style="padding-left: 5px;"></i>
+                                    </button></div>
+
+                            </div>
+
                         </div>
 
 

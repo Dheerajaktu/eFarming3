@@ -48,6 +48,7 @@ router.post('/updateProfile/:id', isLoggedIn, controller.updateUserProfile);
 
 /*------------------(con-products.js)-----------------*/
 router.get('/products', isLoggedIn, products.productsHome);
+router.post('/addNewProduct', isLoggedIn, products.addProduct);
 
 
 

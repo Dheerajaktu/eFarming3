@@ -44,12 +44,20 @@ $(document).on('click', '#saveProfileButton', () => {
             type: 'POST'
         }).then(response => {
             if (response.status == '200') {
-                alert('Profile Updated Successfully')
+                alert('Profile Updated Successfully');
+                $('input').attr('readonly', true);
+                $('#saveProfileButton').removeAttr('disabled');
             } else {
                 alert('Error While Updating Profile')
             }
         })
 
     }
+
+})
+
+$(document).on('click', '#editProfileButton', function onFormChange() {
+    $('input').removeAttr('readonly');
+    $('#saveProfileButton').removeAttr('disabled');
 
 })
