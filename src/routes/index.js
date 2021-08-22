@@ -5,6 +5,7 @@ const controller = require('../controller/con-users');
 const products = require('../controller/con-products');
 const services = require('../controller/con-services');
 const other = require('../controller/con-other');
+const multer = require('multer');
 require('../config/passport')(passport);
 
 function isLoggedIn(req, res, next) {
@@ -16,15 +17,8 @@ function isLoggedIn(req, res, next) {
 }
 
 
-
 /* ------------------GET Index page-------------------*/
-router.get('/', (req, res) => {
-  if (req.user) {
-    res.render('index', { title: 'Index', user: req.user.firstName });
-  } else {
-    res.render('index', { title: 'Index', user: '' });
-  }
-});
+router.get('/', products.indexPage);
 
 
 /*-------------con-user------------------------*/
@@ -46,10 +40,21 @@ router.get('/profile', isLoggedIn, controller.userProfile);
 router.post('/updateProfile/:id', isLoggedIn, controller.updateUserProfile);
 
 
-/*------------------(con-products.js)-----------------*/
-router.get('/products', isLoggedIn, products.productsHome);
-router.post('/addNewProduct', isLoggedIn, products.addProduct);
+/*------------------(con-products.js)------------------------------*/
+const path = require('path');
+router.use(express.static(__dirname + './public/'));
+const storage = multer.diskStorage({
+  destination: './public/upload/',
 
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+})
+
+const upload = multer({ storage: storage });
+
+router.get('/products', isLoggedIn, products.productsHome);
+router.post('/addNewProduct', upload.single('productImage'), isLoggedIn, products.addProduct);
 
 
 /*------------------(con-services.js)-----------------*/

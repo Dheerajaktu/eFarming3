@@ -1,35 +1,74 @@
 const Products = require('../models/products');
+const mongoose = require('mongoose');
 
-module.exports.productsHome = (req, res) => {
-    res.render('products', { user: req.user.firstName, user1: req.user });
+
+
+
+
+
+
+
+
+
+module.exports.indexPage = async (req, res) => {
+
+    await Products.find({}, (err, data) => {
+        if (err) throw err;
+        if (req.user) {
+            res.render('index', { title: 'Index', user: req.user.firstName, products: data });
+
+        } else {
+            res.render('index', { title: 'Index', user: '', products: data });
+        }
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+module.exports.productsHome = async (req, res) => {
+    const userID = req.user._id;
+    await Products.find({ userId: mongoose.Types.ObjectId(`${userID}`) }, (err, data) => {
+        if (err) {
+            res.status(500).json({ message: 'error While fetching product' });
+        } else {
+            res.render('products', { user: req.user.firstName, user1: req.user, products: data });
+
+        }
+    })
 }
 
 
 /*-------------Adding New Product----------------------*/
 module.exports.addProduct = async (req, res) => {
-    console.log('------Add Product Controller called-------', req.body, req.params);
-    if (req.body.productTitle && req.body.productPrice && req.body.productMOQ && req.body.productDescription && req.body.productVisibility && req.body.productTransportation) {
+
+    if (req.file.filename && req.body.productTitle && req.body.productPrice && req.body.productMOQ && req.body.productVisibility && req.body.productTransportation) {
         try {
+
             const newProduct = new Products({
-                pImage: req.body.productImage || null,
-                pTitle: req.body.productTitle || null,
-                pPrice: req.body.productPrice || null,
-                pMOQ: req.body.productMOQ || null,
-                pDescription: req.body.productDescription || null,
-                pVisibility: req.body.productVisibility || null,
-                pTransportation: req.body.productTransportation || null
+                userId: req.user._id,
+                productTitle: req.body.productTitle,
+                productPrice: req.body.productPrice,
+                productMOQ: req.body.productMOQ,
+                productDescription: req.body.productDescription,
+                productVisibility: req.body.productVisibility,
+                productTransportation: req.body.productTransportation,
+                productImage: req.file.filename,
             });
-
             const savedProduct = await newProduct.save();
-            const response = {
-                status: 200,
-                message: 'success',
-                product: savedProduct
+            if (savedProduct) {
+                res.redirect('/products');
+            } else {
+                res.status(500).json({ message: 'error While Adding product' });
             }
-            res.send(response);
-
         } catch (err) {
-            console.log('-------------con error---------', err);
             res.status(500).json({ message: 'error While Adding product' });
         }
     } else {

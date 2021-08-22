@@ -59,6 +59,7 @@ app.use(cookieParser());
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'));
 app.use(express.static(path.join(__dirname, 'src/public')));
+app.use(express.static(path.join(__dirname, './public/upload')));
 app.set('view engine', 'ejs');
 
 

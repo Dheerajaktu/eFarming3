@@ -88,21 +88,22 @@
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Add Products Details(this is in
-                                            process can't add product as of now)</h5>
+                                        <h5 class="modal-title" id="exampleModalLabel">Add Products Details
+                                           </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             id="modalCloseButton" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <form id="addProductForm">
+                                        <form id="addProductForm" method="POST" action="/addNewProduct"
+                                            enctype="multipart/form-data">
 
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>Add Image
-                                                        <span style="color: green">*</span>
+                                                        <span style="color: red">*</span>
                                                     </label>
                                                     <input type="file" class="form-control" placeholder="upload Image"
-                                                        name="productImage" id="productImage">
+                                                        name="productImage" id="productImage" required>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -177,8 +178,7 @@
 
                                             <form>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-success btn-sm"
-                                                        id="addProductButton">Save</button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
 
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                         id="addProductFormResetButton">Reset</button>
@@ -198,7 +198,7 @@
 
             </div>
 
-            <div>
+            <div class="">
                 <div class="table-responsive">
 
                     <!--Table-->
@@ -209,21 +209,33 @@
                             <tr>
                                 <th>#</th>
                                 <th class="th-lg">Product Image</th>
-                                <th class="th-lg">Product Name</th>
+                                <th class="th-lg">Product Visibility</th>
+                                <th class="th-lg">Product Price</th>
                                 <th class="th-lg">Action</th>
                             </tr>
                         </thead>
-
-                        <% for (var i=1; i <=10; i++ ) { %>
+                        <% products.forEach(function(data, index){ %>
                             <tbody>
                                 <tr>
                                     <th scope="row">
-                                        <%= i%>
+                                        <%= index + 1 %>
                                     </th>
-                                    <td>
-                                        <div class=""> <img src="/images/p1.jpg" width="100" height="100"> </div>
+                                    <td style="width: 20%;">
+                                        <div class="">
+                                            <img src="<%= data.productImage %>" width="100" height="100" />
+
+                                        </div>
+                                        <strong>
+                                            <%=data.productTitle%>
+                                        </strong>
                                     </td>
-                                    <td>Fresh Wheat</td>
+
+                                    <td>
+                                        <%=data.productVisibility %>
+                                    </td>
+                                    <td>
+                                        <%=data.productPrice %>
+                                    </td>
                                     <td>
                                         <span>
                                             <a href="#">View Details</a>
@@ -235,7 +247,7 @@
                             </tbody>
 
 
-                            <% } %>
+                            <% }) %>
                     </table>
 
 

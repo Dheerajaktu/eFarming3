@@ -5,30 +5,29 @@ $(document).on('click', '#addProductFormResetButton', function onFormReset() {
     $('input,textarea,select').val('');
 })
 
-/*----------Add Products AJAX---------*/
+/*----------Adding Products AJAX---------*/
 $(document).on('click', '#addProductButton', () => {
-    const pImage = $('#productImage').val();
     const pTitle = $('#productTitle').val();
     const pPrice = $('#productPrice').val();
     const pMOQ = $('#productMOQ').val();
-    const pDescription = $('#productDescription').val();;
+    const pDescription = $('#productDescription').val();
     const pVisibility = $('#productVisibility').val();;
-    const pTransportation = $('#productTransportation').val();;
-
-    if (pTitle != '' && pPrice != '' && pMOQ != '' && pDescription != '' && pVisibility != '' && pTransportation != '') {
+    const pTransportation = $('#productTransportation').val();
+    if (pTitle != '' && pPrice != '' && pMOQ != '' && pVisibility != '' && pTransportation != '') {
 
         let data = {};
         $.each($('#addProductForm').serializeArray(), function fieldValues() {
-            
             data[this.name] = this.value;
         });
         const URL = `/addNewProduct`;
+        if (pImage) data.productImage = `${pImage}`;
         $.ajax({
             url: URL,
             data,
             type: 'POST'
         }).then(response => {
             if (response.status == '200') {
+                $('#modalCloseButton').trigger('click');
                 alert('Product Added Successfully');
             } else {
                 alert('Error While Adding Product')
@@ -39,4 +38,24 @@ $(document).on('click', '#addProductButton', () => {
         alert('Please Fill All the Values');
     }
 
+})
+
+
+/*---------- AJAX for Uploading Images---------*/
+
+$(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
+    e.preventDefault();
+    const pImage = document.getElementById('productImage').files[0].name;
+    const URL = `/uploadProductImage`
+    $.ajax({
+        url: URL,
+        data: pImage,
+        type: 'POST'
+    }).then(response => {
+        if (response) {
+            alert('Product Added Successfully');
+        } else {
+            alert('Error While Adding Product')
+        }
+    })
 })

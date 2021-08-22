@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
+const User = require('./users');
+
 const productsSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users'
+    },
     productTitle: {
         type: String,
         max: 100,
@@ -18,9 +24,9 @@ const productsSchema = new mongoose.Schema({
         type: String,
         requied: true
     },
-    productDesciption: {
+    productDescription: {
         type: String,
-        required: true,
+        required: false,
         max: 3000
     },
     productVisibility: {
