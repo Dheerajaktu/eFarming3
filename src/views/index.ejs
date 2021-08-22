@@ -34,19 +34,19 @@
                                     <h5>
                                         <%= data.productTitle %>
                                     </h5> <span class="text-success">
-                                        <%= data.productPrice %>(INR)
+                                        <%= data.productPrice %><span style="font-size: 9px;">(INR)</span>
                                             <span style="font-size: 10px;font-weight: 700;">
                                                 <%= data.productVisibility %> Level Visibility
                                             </span>
                                     </span>
                                 </div>
                                 <button type="button" class="btn btn-sm mr-1 my-1"
-                                    style="background-color: #648E06;color:ivory"><i
-                                        class="fas fa-shopping-cart pr-2"></i>Contact Seller</button>
-                                <p class="btn btn-light btn-sm mr-1 my-1"><i class="fas fa-info-circle pr-2"></i>MOQ:
-                                    <%= data.productMOQ %>, <a href="#" style="color: darkgreen;font-size: 10px">More
-                                            Details</a>
-                                </p>
+                                    style="background-color: #648E06;color:ivory">Contact Seller
+                                </button>
+                                <span style="font-size: 12px;"><strong>MOQ: <%= data.productMOQ %></strong>
+                                        <a href="#" style="color: darkgreen;font-size: 10px;float: right;">More Details</a>
+
+                                </span>
 
                             </div>
 
