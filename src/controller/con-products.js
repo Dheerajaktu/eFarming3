@@ -2,14 +2,6 @@ const Products = require('../models/products');
 const mongoose = require('mongoose');
 
 
-
-
-
-
-
-
-
-
 module.exports.indexPage = async (req, res) => {
 
     await Products.find({}, (err, data) => {
@@ -23,14 +15,6 @@ module.exports.indexPage = async (req, res) => {
     })
 
 }
-
-
-
-
-
-
-
-
 
 
 module.exports.productsHome = async (req, res) => {
@@ -75,4 +59,27 @@ module.exports.addProduct = async (req, res) => {
         res.status(401).json({ message: 'Please Fill Complete Product Details' });
     }
 
+}
+
+/*------------------Delete Product--------------------------*/
+module.exports.productDeleteByUser = (req, res) => {
+    const productID = req.params.id;
+    const ID = productID.trim();
+    if (req.user) {
+        try {
+            Products.findByIdAndRemove({ _id: ID }, (err, response) => {
+                if (err) {
+                    throw err;
+                }
+                const result = {
+                    status: '200',
+                    message: 'Success',
+                    result: response
+                }
+                res.send(result);
+            });
+        } catch (err) {
+            res.status(500).json({ message: 'error While Adding product' });
+        }
+    }
 }

@@ -59,3 +59,22 @@ $(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
         }
     })
 })
+
+/*-------------Product Delete Ajax-----------------------*/
+$(document).on('click', '#productDeleteButton', function onProductDelete() {
+    const pId = $('#pIdHidden').val();
+    const URL = `/productDelete/${pId}`;
+
+    console.log('---id---', pId, URL);
+    $.ajax({
+        url: URL,
+        type: 'DELETE'
+    }).then(response => {
+        if (response.status == '200') {
+            alert('Product Deleted Successfully');
+        } else {
+            alert('Error While Deleting Product')
+        }
+    })
+
+})

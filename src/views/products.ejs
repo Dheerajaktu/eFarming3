@@ -212,6 +212,7 @@
                                 <th class="th-lg">Product Visibility</th>
                                 <th class="th-lg">Product Price</th>
                                 <th class="th-lg">Action</th>
+                                <th class="th-lg" style="display: none;"></th>
                             </tr>
                         </thead>
                         <% products.forEach(function(data, index){ %>
@@ -238,10 +239,19 @@
                                     </td>
                                     <td>
                                         <span>
-                                            <a href="#">View Details</a>
+                                            <a type="button" id="productEditButton"><i class="bi bi-pencil-square"
+                                                    style="color:indigo;font-size: 25px;"></i>
+                                            </a>
+                                            <br />
+                                            <a type="button" id="productDeleteButton"><i class="bi bi-trash-fill"
+                                                    style="color: red;font-size: 25px;"></i></i>
+                                            </a>
                                         </span>
                                     </td>
                                 </tr>
+                                <td style="display: none;">
+                                    <input type="hidden" value="<%=data._id %>" id="pIdHidden" />
+                                </td>
 
 
                             </tbody>
