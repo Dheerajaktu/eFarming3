@@ -55,7 +55,7 @@ const upload = multer({ storage: storage });
 
 router.get('/products', isLoggedIn, products.productsHome);
 router.post('/addNewProduct', upload.single('productImage'), isLoggedIn, products.addProduct);
-router.delete('/productDelete/:id', isLoggedIn, products.productDeleteByUser)
+router.delete('/productDelete/:id', isLoggedIn, products.productDeleteByUser);
 
 
 /*------------------(con-services.js)-----------------*/
