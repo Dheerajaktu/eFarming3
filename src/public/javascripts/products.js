@@ -28,7 +28,10 @@ $(document).on('click', '#addProductButton', () => {
         }).then(response => {
             if (response.status == '200') {
                 $('#modalCloseButton').trigger('click');
-                alert('Product Added Successfully');
+                swal({
+                    title: 'Profile Added Successfully',
+                    icon: 'success'
+                });
             } else {
                 alert('Error While Adding Product')
             }
@@ -65,7 +68,6 @@ $(document).on('click', '#productDeleteButton', function onProductDelete() {
     const pId = $('#pIdHidden').val();
     const URL = `/productDelete/${pId}`;
 
-    console.log('---id---', pId, URL);
     $.ajax({
         url: URL,
         type: 'DELETE'
@@ -79,3 +81,5 @@ $(document).on('click', '#productDeleteButton', function onProductDelete() {
     })
 
 })
+
+
