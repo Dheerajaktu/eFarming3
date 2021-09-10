@@ -1,6 +1,6 @@
 const Products = require('../models/products');
 const mongoose = require('mongoose');
-
+const fs = require('fs');
 
 module.exports.indexPage = async (req, res) => {
 

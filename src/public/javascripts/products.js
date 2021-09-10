@@ -72,8 +72,9 @@ $(document).on('click', '#productDeleteButton', function onProductDelete() {
     }).then(response => {
         if (response.status == '200') {
             alert('Product Deleted Successfully');
+            location.reload(true);
         } else {
-            alert('Error While Deleting Product')
+            alert('Error While Deleting Product');
         }
     })
 
