@@ -243,15 +243,13 @@
                                                     style="color:indigo;font-size: 25px;"></i>
                                             </a>
                                             <br />
-                                            <a type="button" id="productDeleteButton"><i class="bi bi-trash-fill"
+                                            <a type="button" class="commonProductDelete" id="productDeleteButton"
+                                                data-pID="<%=data._id %>"><i class="bi bi-trash-fill"
                                                     style="color: red;font-size: 25px;"></i></i>
                                             </a>
                                         </span>
                                     </td>
                                 </tr>
-                                <td style="display: none;">
-                                    <input type="hidden" value="<%=data._id %>" id="pIdHidden" />
-                                </td>
 
 
                             </tbody>

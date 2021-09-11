@@ -65,6 +65,7 @@ module.exports.addProduct = async (req, res) => {
 module.exports.productDeleteByUser = (req, res) => {
     const productID = req.params.id;
     const ID = productID.trim();
+    console.log('-------ID===========', ID);
     if (req.user) {
         try {
             Products.findByIdAndRemove({ _id: ID }, (err, response) => {

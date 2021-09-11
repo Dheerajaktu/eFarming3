@@ -44,14 +44,15 @@ $(document).on('click', '#saveProfileButton', () => {
             type: 'POST'
         }).then(response => {
             if (response.status == '200') {
-                swal({
-                    title: 'Profile Updated Successfully',
-                    icon: 'success'
-                });
+                Swal.fire('Profile Updated Successfully');
                 $('input').attr('readonly', true);
                 $('#saveProfileButton').removeAttr('disabled');
             } else {
-                alert('Error While Updating Profile')
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong! Please try again'
+                });
             }
         })
 

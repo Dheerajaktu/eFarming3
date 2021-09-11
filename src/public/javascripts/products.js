@@ -28,17 +28,19 @@ $(document).on('click', '#addProductButton', () => {
         }).then(response => {
             if (response.status == '200') {
                 $('#modalCloseButton').trigger('click');
-                swal({
-                    title: 'Profile Added Successfully',
-                    icon: 'success'
-                });
+                Swal.fire('Profile Added Successfully');
             } else {
-                alert('Error While Adding Product')
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error While Adding Product! Please try again'
+                });
             }
         })
 
     } else {
-        alert('Please Fill All the Values');
+        alert('');
+        Swal.fire('Please Fill All the Values');
     }
 
 })
@@ -64,22 +66,61 @@ $(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
 })
 
 /*-------------Product Delete Ajax-----------------------*/
-$(document).on('click', '#productDeleteButton', function onProductDelete() {
-    const pId = $('#pIdHidden').val();
+$(document).on('click', '.commonProductDelete', function onProductDelete() {
+    alert('-----ok---');
+    const pId = $(this).attr('data-pID');
     const URL = `/productDelete/${pId}`;
+    console.log('--------ID----', pId, URL);
 
-    $.ajax({
-        url: URL,
-        type: 'DELETE'
-    }).then(response => {
-        if (response.status == '200') {
-            alert('Product Deleted Successfully');
-            location.reload(true);
-        } else {
-            alert('Error While Deleting Product');
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        console.log('---here--------', result);
+        if (result.isConfirmed) {
+            $.ajax({
+                url: URL,
+                type: 'DELETE'
+            }).then(response => {
+                if (response.status == '200') {
+                    Swal.fire(
+                        'Deleted!',
+                        'Product Deleted Successfully.',
+                        'success'
+                    )
+                    location.reload(true);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong! Please try again'
+                    });
+                }
+            })
+
         }
     })
+
+
+
+
 
 })
 
 
+    // $.ajax({
+    //     url: URL,
+    //     type: 'DELETE'
+    // }).then(response => {
+    //     if (response.status == '200') {
+    //         alert('Product Deleted Successfully');
+    //         location.reload(true);
+    //     } else {
+    //         alert('Error While Deleting Product');
+    //     }
+    // })
