@@ -47,7 +47,6 @@ $(document).on('click', '#addProductButton', () => {
 
 
 /*---------- AJAX for Uploading Images---------*/
-
 $(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
     e.preventDefault();
     const pImage = document.getElementById('productImage').files[0].name;
@@ -67,10 +66,8 @@ $(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
 
 /*-------------Product Delete Ajax-----------------------*/
 $(document).on('click', '.commonProductDelete', function onProductDelete() {
-    alert('-----ok---');
     const pId = $(this).attr('data-pID');
     const URL = `/productDelete/${pId}`;
-    console.log('--------ID----', pId, URL);
 
     Swal.fire({
         title: 'Are you sure?',
@@ -81,7 +78,6 @@ $(document).on('click', '.commonProductDelete', function onProductDelete() {
         cancelButtonColor: '#d33',
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
-        console.log('---here--------', result);
         if (result.isConfirmed) {
             $.ajax({
                 url: URL,
@@ -106,21 +102,4 @@ $(document).on('click', '.commonProductDelete', function onProductDelete() {
         }
     })
 
-
-
-
-
 })
-
-
-    // $.ajax({
-    //     url: URL,
-    //     type: 'DELETE'
-    // }).then(response => {
-    //     if (response.status == '200') {
-    //         alert('Product Deleted Successfully');
-    //         location.reload(true);
-    //     } else {
-    //         alert('Error While Deleting Product');
-    //     }
-    // })
