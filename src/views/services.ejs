@@ -5,6 +5,51 @@
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/home.css">
         <script src="javascripts/users.js"></script>
+        <style>
+            .card {
+                cursor: pointer;
+                margin: 5px;
+            }
+
+            .hd {
+                font-size: 25px;
+                font-weight: 550
+            }
+
+            .card.hover,
+            .card:hover {
+                box-shadow: 0 20px 40px rgba(0, 0, 0, .2)
+            }
+
+            .img {
+                margin-bottom: 35px;
+                -webkit-filter: drop-shadow(5px 5px 5px #222);
+                filter: drop-shadow(5px 5px 5px #222)
+            }
+
+            .card-title {
+                font-weight: 600
+            }
+
+            button.focus,
+            button:focus {
+                outline: 0;
+                box-shadow: none !important
+            }
+
+            .ft {
+                margin-top: 25px
+            }
+
+            .chk {
+                margin-bottom: 5px
+            }
+
+            .rck {
+                margin-top: 20px;
+                padding-bottom: 15px
+            }
+        </style>
 </head>
 
 <body class="container">
@@ -14,50 +59,61 @@
     <main>
         <%- include('layout/sidenav.ejs')%>
 
-            <div class="container-fluid">
-                <div class="tile job">
-                    <div class="header">
-                        <div class="count">1</div>
-                        <div class="title">Free Service</div>
-                    </div>
-                    <div class="body">
-                        <div class="title">Distric Level</div>
-                    </div>
-                </div>
-                <div class="tile job">
-                    <div class="header">
-                        <div class="count">0</div>
-                        <div class="title">Paid Service</div>
-                    </div>
-                    <div class="body">
-                        <div class="title">State Level</div>
-                    </div>
-                </div>
-                <div class="tile job resource">
-                    <div class="header">
-                        <div class="count">0</div>
-                        <div class="title">Premium Service</div>
-                    </div>
-                    <div class="body">
-                        <div class="title">Across India Level</div>
-                    </div>
-                </div>
-                <div class="tile wide quote">
-                    <div class="header">
-                        <div class="left">
-                            <div class="count">5</div>
-                            <div class="title">Ton</div>
-                        </div>
-                        <div class="right">
-                            <div class="count">2000</div>
-                            <div class="title">Buy Now</div>
+
+
+            <!-- START -->
+
+            <div class='container-fluid mx-auto mt-5 mb-5 col-12' style="text-align: center">
+                <div class="hd">Sell Your Products Across Country, find the best buyer and get a Deal!</div>
+                <p><small class="text-muted">Always render more and better service than <br />is expected of you, no
+                        matter what your ask may be.</small></p>
+                <div class="row" style="justify-content: center">
+                    <div class="card col-md-3 col-12">
+                        <div class="card-content">
+                            <div class="card-body"> <img class="img" src="/images/free.png" height="100" width="120"/>
+                                <div class="shadow"></div>
+                                <div class="card-title"> We're Free at District Level</div>
+                                <div class="card-subtitle">
+                                    <p> <small class="text-muted">We spent thousands of hours creating on algorithm that
+                                            does this for you in seconds. We collect a small fee from the professional
+                                            after they meet your</small> </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="body">
-                        <div class="title">Available in Bareilly</div>
+                    <div class="card col-md-3 col-12 ml-2">
+                        <div class="card-content">
+                            <div class="card-body"> 
+                                <div style="background-color:#648E06;color: ivory;border-radius: 200px;">
+                                    <h2>State Level Service</h2>
+                                </div>
+                                
+                                <div class="card-title"> For Plus Customers </div>
+                                <div class="card-subtitle">
+                                    <p> <small class="text-muted"> We don't accept ads from anyone. We use actual data
+                                            to match you who the best person for each job </small> </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div> 
-            </div>
+                    <div class="card col-md-3 col-12 ml-2">
+                        <div class="card-content">
+                            <div class="card-body"> 
+                                <div style="background-color:#648E06;color: ivory;border-radius: 200px;">
+                                    <h2>Country Level Service</h2>
+                                </div>
+                                <div class="card-title">For Premium Customers </div>
+                                <div class="card-subtitle">
+                                    <p> <small class="text-muted">Buying or selling a home is often the largest
+                                            transaction anyone does in their life. we guide you through the process so
+                                            that you can be confident in reaching your dream outcome.</small> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ft">
+                    <!-- END -->
     </main>
     <footer>
         <%- include('layout/footer.ejs')%>

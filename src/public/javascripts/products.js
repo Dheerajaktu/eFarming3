@@ -4,6 +4,10 @@ $(document).on('click', '#modalCloseButton', function onModalClose() {
 $(document).on('click', '#addProductFormResetButton', function onFormReset() {
     $('input,textarea,select').val('');
 })
+$(document).on('click', '#productEditButton', function showModal() {
+    console.log('---here');
+    $('#exampleModal1').modal('show');
+})
 
 /*----------Adding Products AJAX---------*/
 $(document).on('click', '#addProductButton', () => {

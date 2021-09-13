@@ -189,12 +189,68 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Product Details
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            id="modalCloseButton" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="productDetailsForm" method="POST" action="#"
+                                            enctype="multipart/form-data">
+
+                                            <div class="row">
+                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+
+                                                <div class="row">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                    </div>
+
+
+                                                </div>
+
+                                                <form>
+                                                    <div class="modal-footer">
+                                                        <button type="submit"
+                                                            class="btn btn-success btn-sm">Save</button>
+
+                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                            id="addProductFormResetButton">Reset</button>
+                                                    </div>
+                                            </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
 
-                    <!-- Dynamic from end here-->
+                        <!-- Dynamic from end here-->
+                    </div>
                 </div>
-            </div>
 
             </div>
 
@@ -231,10 +287,10 @@
                                         </strong>
                                     </td>
 
-                                    <td style="width:40%;">
+                                    <td style="width:50%;">
                                         <%=data.productDescription %>
                                     </td>
-                                    <td style="width: 20%;">
+                                    <td style="width: 10%;">
                                         <%=data.productPrice %>
                                     </td>
                                     <td style="width: 20%;">
@@ -263,6 +319,12 @@
 
             </div>
     </main>
+
+
+
+
+
+
 
 
 
