@@ -5,9 +5,9 @@ $(document).on('click', '#addProductFormResetButton', function onFormReset() {
     $('input,textarea,select').val('');
 })
 $(document).on('click', '#productEditButton', function showModal() {
-    console.log('---here');
     $('#exampleModal1').modal('show');
-})
+});
+
 
 /*----------Adding Products AJAX---------*/
 $(document).on('click', '#addProductButton', () => {
@@ -76,7 +76,6 @@ $(document).on('click', '.commonProductDelete', function onProductDelete() {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
-        icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
@@ -111,6 +110,16 @@ $(document).on('click', '.commonProductDelete', function onProductDelete() {
 /*-------------Product Details Update Ajax-----------------------*/
 
 $(document).on('click', '.commonProductEdit', function onUpdate() {
+
+    $('#p1').attr('readonly', true).val('');
+    $('#p2').attr('readonly', true).val('');
+    $('#p3').attr('readonly', true).val('');
+    $('#p4').attr('readonly', true).val('');
+    $('#p5').attr('readonly', true).val('');
+    $('#p6').attr('readonly', true).val('');
+    $('#editProductDetailSaveBtn, #addProductFormResetButton').attr('disabled', true);
+
+
     const pID = $(this).attr('data-productID');
     const URL = `getOneProduct/${pID}`
     $.ajax({
@@ -126,7 +135,7 @@ $(document).on('click', '.commonProductEdit', function onUpdate() {
                 value: `${data.data.productVisibility}`,
                 text: `${data.data.productVisibility}`
             }))
-            
+
         }
     })
 
