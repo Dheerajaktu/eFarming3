@@ -107,3 +107,27 @@ $(document).on('click', '.commonProductDelete', function onProductDelete() {
     })
 
 })
+
+/*-------------Product Details Update Ajax-----------------------*/
+
+$(document).on('click', '.commonProductEdit', function onUpdate() {
+    const pID = $(this).attr('data-productID');
+    const URL = `getOneProduct/${pID}`
+    $.ajax({
+        url: URL,
+        type: 'get'
+    }).then(data => {
+        if (data.status == '200') {
+            $('#p1').attr('src', `${data.data.productImage}`);
+            $('#p2').val(`${data.data.productDescription}`);
+            $('#p3').val(`${data.data.productPrice}`);
+            $('#p4').val(`${data.data.productMOQ}`);
+            $('#p5').append($('<option>', {
+                value: `${data.data.productVisibility}`,
+                text: `${data.data.productVisibility}`
+            }))
+            
+        }
+    })
+
+})

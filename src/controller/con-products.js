@@ -1,6 +1,7 @@
 const Products = require('../models/products');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const { response } = require('express');
 
 module.exports.indexPage = async (req, res) => {
 
@@ -65,7 +66,6 @@ module.exports.addProduct = async (req, res) => {
 module.exports.productDeleteByUser = (req, res) => {
     const productID = req.params.id;
     const ID = productID.trim();
-    console.log('-------ID===========', ID);
     if (req.user) {
         try {
             Products.findByIdAndRemove({ _id: ID }, (err, response) => {
@@ -83,4 +83,26 @@ module.exports.productDeleteByUser = (req, res) => {
             res.status(500).json({ message: 'error While Adding product' });
         }
     }
+}
+
+/*--------------------Get Single Product Details------------------------*/
+module.exports.getSingleProductDetails = (req, res) => {
+
+    if (req.user) {
+        try {
+            Products.findById({ _id: req.params.id }, (err, response) => {
+                if (err) throw err;
+                const result = {
+                    status: '200',
+                    message: 'Success',
+                    data: response
+                }
+                res.send(result);
+            })
+        } catch (err) {
+            res.status(500).json({ message: 'error While fetching product' });
+        }
+    }
+
+
 }

@@ -80,7 +80,7 @@
 
                     </div>
 
-                    <!-- Dynamic from start here-->
+                    <!------------------------------ Dynamic from start here---------------------------------->
 
                     <div class="row">
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -144,6 +144,7 @@
                                                 </div>
 
                                             </div>
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>Product Visibility
@@ -153,10 +154,6 @@
                                                         name="productVisibility" id="productVisibility"
                                                         style="font-size: 12px;" required>
                                                         <option selected>Select</option>
-                                                        <option value="District">District</option>
-                                                        <option value="State">State(Plus Customer)</option>
-                                                        <option value="Across Country">Across Country(Premium Customer)
-                                                        </option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
@@ -167,12 +164,8 @@
                                                         style="font-size: 12px;" name="productTransportation"
                                                         id="productTransportation" required>
                                                         <option selected>Select</option>
-                                                        <option value="Yes">Yes</option>
-                                                        <option value="No">No</option>
-                                                        <option value="May be">May be</option>
                                                     </select>
                                                 </div>
-
 
                                             </div>
 
@@ -189,6 +182,9 @@
                             </div>
                         </div>
                     </div>
+                    <!--------------------------- Dynamic from end here--------------------------------------->
+
+                    <!-- -------------------------PRODUCT DETAILS MODAL START---------------------------------->
                     <div class="row">
                         <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
                             aria-hidden="true">
@@ -205,39 +201,81 @@
                                             enctype="multipart/form-data">
 
                                             <div class="row">
-                                                
-                                            </div>
-                                            <div class="row">
                                                 <div class="col-md-12">
+                                                    <label>Add Image
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <input type="file" class="form-control" placeholder="Change Image"
+                                                        name="productImage" id="productImage" required readonly>
                                                 </div>
                                             </div>
+                                            <br>
                                             <div class="row">
                                                 <div class="col-md-6">
-
+                                                    <img src="" width="100%" height="100%" id="p1" />
                                                 </div>
                                                 <div class="col-md-6">
+                                                    <label>Product Description
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <textarea type="text" class="form-control" name="productDescription"
+                                                        id="p2" value="" rows="11" style="font-size: 12px;"
+                                                        readonly></textarea>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Price
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control" placeholder="Product Price"
+                                                        name="productPrice" value="" id="p3" required readonly>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>MOQ
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <input type="text" class="form-control"
+                                                        placeholder="Minimum Order Quantity" name="productMOQ" id="p4"
+                                                        value="" required readonly>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Product Visibility
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <select class="form-select" aria-label="Default select example"
+                                                        name="productVisibility" id="p5" style="font-size: 12px;"
+                                                        required readonly>
+                                                    </select>
                                                 </div>
 
-                                                <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Transportation
+                                                        <span style="color: red">*</span>
+                                                    </label>
+                                                    <select class="form-select" aria-label="Default select example"
+                                                        style="font-size: 12px;" name="p6" id="productTransportation"
+                                                        readonly>
+                                                        <option selected>Select</option>
+                                                    </select>
+
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
 
-                                                    </div>
-                                                    <div class="col-md-6">
-
-                                                    </div>
-
-
-                                                </div>
 
                                                 <form>
                                                     <div class="modal-footer">
-                                                        <button type="submit"
-                                                            class="btn btn-success btn-sm">Save</button>
-
                                                         <button type="button" class="btn btn-danger btn-sm"
-                                                            id="addProductFormResetButton">Reset</button>
+                                                            id="addProductFormResetButton" disabled>Clear</button>
+                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                            id="editProductDetailButton">Edit</button>
+                                                        <button type="submit" id="editProductDetailSaveBtn"
+                                                            class="btn btn-success btn-sm" disabled>Save</button>
                                                     </div>
                                             </div>
 
@@ -245,11 +283,10 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-                        <!-- Dynamic from end here-->
                     </div>
+                    <!-- -------------------------PRODUCT DETAILS MODAL END------------------>
+
+
                 </div>
 
             </div>
@@ -295,7 +332,8 @@
                                     </td>
                                     <td style="width: 20%;">
                                         <span>
-                                            <a type="button" id="productEditButton"><i class="bi bi-pencil-square"
+                                            <a type="button" id="productEditButton" class="commonProductEdit"
+                                                data-productID="<%=data._id %>"><i class="bi bi-pencil-square"
                                                     style="color:indigo;font-size: 25px;"></i>
                                             </a>
                                             <br />

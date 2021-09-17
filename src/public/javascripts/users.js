@@ -60,8 +60,8 @@ $(document).on('click', '#saveProfileButton', () => {
 
 })
 
-$(document).on('click', '#editProfileButton', function onFormChange() {
-    $('input').removeAttr('readonly');
-    $('#saveProfileButton').removeAttr('disabled');
+$(document).on('click', '#editProfileButton, #editProductDetailButton', function onFormChange() {
+    $('input,textarea').removeAttr('readonly');
+    $('#saveProfileButton, #editProductDetailSaveBtn, #addProductFormResetButton').removeAttr('disabled');
 
 })
