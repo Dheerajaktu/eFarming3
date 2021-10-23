@@ -47,7 +47,6 @@ const storage = multer.diskStorage({
   destination: './public/upload/',
 
   filename: (req, file, cb) => {
-    console.log('----here-------', req.file, file, req.body);
     let name = file.originalname;
     const nameOnly = name.split('.')[0];
     cb(null, nameOnly + '-' + Date.now() + path.extname(file.originalname));

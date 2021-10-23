@@ -33,7 +33,6 @@ module.exports.productsHome = async (req, res) => {
 
 /*-------------Adding New Product----------------------*/
 module.exports.addProduct = async (req, res) => {
-
     if (req.file.filename && req.body.productTitle && req.body.productPrice && req.body.productMOQ && req.body.productVisibility && req.body.productTransportation) {
         try {
 

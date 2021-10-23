@@ -44,7 +44,7 @@
                             <div class="card shadow m-2">
                                 <div class="card-body">
                                     <h5 class="card-title">New Products</h5>
-                                    <a href="#" style="color: ivory;" data-bs-toggle="modal"
+                                    <a href="#" style="color: ivory;" data-bs-toggle="modal" id="addProductModalBtn"
                                         data-bs-target="#exampleModal">Add Products</a>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                                                     <select class="form-select" aria-label="Default select example"
                                                         name="productVisibility" id="productVisibility"
                                                         style="font-size: 12px;" required>
-                                                        <option selected>Select</option>
+                                                        <option selected value="District">District</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-md-6">
@@ -163,7 +163,7 @@
                                                     <select class="form-select" aria-label="Default select example"
                                                         style="font-size: 12px;" name="productTransportation"
                                                         id="productTransportation" required>
-                                                        <option selected>Select</option>
+                                                        <option selected value="Yes">Yes</option>
                                                     </select>
                                                 </div>
 
@@ -186,12 +186,12 @@
 
                     <!-- -------------------------PRODUCT DETAILS MODAL START---------------------------------->
                     <div class="row">
-                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1"
                             aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Product Details
+                                        <h5 class="modal-title" id="exampleModalLabel1">Product Details
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             id="modalCloseButton" aria-label="Close"></button>
@@ -218,7 +218,7 @@
                                                     <label>Product Description
                                                         <span style="color: red">*</span>
                                                     </label>
-                                                    <textarea type="text" class="form-control" name="productDescription"
+                                                    <textarea type="text" class="form-control" name="productDescription1"
                                                         id="p2" value="" rows="11" style="font-size: 12px;"
                                                         readonly></textarea>
                                                 </div>
@@ -231,14 +231,14 @@
                                                         <span style="color: red">*</span>
                                                     </label>
                                                     <input type="text" class="form-control" placeholder="Product Price"
-                                                        name="productPrice" value="" id="p3" required readonly>
+                                                        name="productPrice1" value="" id="p3" required readonly>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label>MOQ
                                                         <span style="color: red">*</span>
                                                     </label>
                                                     <input type="text" class="form-control"
-                                                        placeholder="Minimum Order Quantity" name="productMOQ" id="p4"
+                                                        placeholder="Minimum Order Quantity" name="productMOQ1" id="p4"
                                                         value="" required readonly>
                                                 </div>
                                             </div>
@@ -250,7 +250,7 @@
                                                         <span style="color: red">*</span>
                                                     </label>
                                                     <select class="form-select" aria-label="Default select example"
-                                                        name="productVisibility" id="p5" style="font-size: 12px;"
+                                                        name="productVisibility1" id="p5" style="font-size: 12px;"
                                                         required readonly>
                                                     </select>
                                                 </div>
@@ -260,9 +260,9 @@
                                                         <span style="color: red">*</span>
                                                     </label>
                                                     <select class="form-select" aria-label="Default select example"
-                                                        style="font-size: 12px;" name="p6" id="productTransportation"
+                                                        style="font-size: 12px;" name="productTransportation1" id="p6"
                                                         readonly>
-                                                        <option selected>Select</option>
+                                                        <!-- <option selected></option> -->
                                                     </select>
 
                                                 </div>

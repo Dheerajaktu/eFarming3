@@ -4,6 +4,7 @@
 <head>
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/home.css">
+        <link rel="stylesheet" href="stylesheets/clients.css">
         <script src="javascripts/users.js"></script>
 </head>
 
@@ -14,7 +15,84 @@
     <main>
         <%- include('layout/sidenav.ejs')%>
 
-        <h1>Clients Page</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="container d-flex justify-content-center mt-1">
+                        <div class="card">
+                            <div class="top-container"> <img src="../images/avatarLogin1.jpg"
+                                    class="img-fluid profile-image" width="70">
+                                <div class="ml-3">
+                                    <h5 class="name">Princy Goel</h5>
+                                    <p class="mail">clark@zmail.com</p>
+                                </div>
+                            </div>
+                            <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+                                <div class="dollar-div px-3">
+                                    <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+                                </div>
+                                <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">City:
+                                    </span> <span class="amount"><span class="dollar-sign">$</span>1476</span> </div>
+                            </div>
+                            <div class="recent-border mt-4"> <span class="recent-orders">Recent orders</span> </div>
+                            <div class="wishlist-border pt-2"> <span class="wishlist">Wishlist</span> </div>
+                            <div class="fashion-studio-border pt-2"> <span class="fashion-studio">State: </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="container d-flex justify-content-center mt-1">
+                        <div class="card">
+                            <div class="top-container"> <img src="../images/avatarLogin1.jpg"
+                                    class="img-fluid profile-image" width="70">
+                                <div class="ml-3">
+                                    <h5 class="name">Ricky Dheeraj Sharma</h5>
+                                    <p class="mail">clark@zmail.com</p>
+                                </div>
+                            </div>
+                            <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+                                <div class="dollar-div px-3">
+                                    <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+                                </div>
+                                <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current
+                                        Balance</span> <span class="amount"><span
+                                            class="dollar-sign">$</span>1476</span> </div>
+                            </div>
+                            <div class="recent-border mt-4"> <span class="recent-orders">Recent orders</span> </div>
+                            <div class="wishlist-border pt-2"> <span class="wishlist">Wishlist</span> </div>
+                            <div class="fashion-studio-border pt-2"> <span class="fashion-studio">Fashion studio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="container d-flex justify-content-center mt-1">
+                        <div class="card">
+                            <div class="top-container"> <img src="../images/avatarLogin1.jpg"
+                                    class="img-fluid profile-image" width="70">
+                                <div class="ml-3">
+                                    <h5 class="name">Prem Sharma</h5>
+                                    <p class="mail">clark@zmail.com</p>
+                                </div>
+                            </div>
+                            <div class="middle-container d-flex justify-content-between align-items-center mt-3 p-2">
+                                <div class="dollar-div px-3">
+                                    <div class="round-div"><i class="fa fa-dollar dollar"></i></div>
+                                </div>
+                                <div class="d-flex flex-column text-right mr-2"> <span class="current-balance">Current
+                                        Balance</span> <span class="amount"><span
+                                            class="dollar-sign">$</span>1476</span> </div>
+                            </div>
+                            <div class="recent-border mt-4"> <span class="recent-orders">Recent orders</span> </div>
+                            <div class="wishlist-border pt-2"> <span class="wishlist">Wishlist</span> </div>
+                            <div class="fashion-studio-border pt-2"> <span class="fashion-studio">Fashion studio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
     </main>
     <footer>
         <%- include('layout/footer.ejs')%>

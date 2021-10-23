@@ -1,5 +1,6 @@
 $(document).on('click', '#modalCloseButton', function onModalClose() {
     $('input,textarea,select').val('');
+
 });
 $(document).on('click', '#addProductFormResetButton', function onFormReset() {
     $('input,textarea,select').val('');
@@ -48,7 +49,6 @@ $(document).on('click', '#addProductButton', () => {
     }
 
 })
-
 
 /*---------- AJAX for Uploading Images---------*/
 $(document).on('click', '#uploadImageBtn', function onImgUpload(e) {
@@ -134,6 +134,10 @@ $(document).on('click', '.commonProductEdit', function onUpdate() {
             $('#p5').append($('<option>', {
                 value: `${data.data.productVisibility}`,
                 text: `${data.data.productVisibility}`
+            }))
+            $('#p6').append($('<option>', {
+                value: `${data.data.productTransportation}`,
+                text: `${data.data.productTransportation}`
             }))
 
         }
