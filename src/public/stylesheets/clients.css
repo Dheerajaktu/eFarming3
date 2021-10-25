@@ -4,7 +4,7 @@ body {
 
 .card {
     background-color: #fff;
-    /* width: auto; */
+    width: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 2rem !important
@@ -37,55 +37,6 @@ body {
     padding-left: 5px;
 }
 
-.middle-container {
-    background-color: #eee;
-    border-radius: 10px
-}
-
-.middle-container:hover {
-    border: 1px solid #648E06
-}
-
-.dollar-div {
-    background-color: #648E06;
-    padding: 12px;
-    border-radius: 10px
-}
-
-.round-div {
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center
-}
-
-.dollar {
-    font-size: 16px !important;
-    color: #5957f9 !important;
-    font-weight: bold !important
-}
-
-.current-balance {
-    font-size: 15px;
-    color: #272727;
-    font-weight: bold
-}
-
-.amount {
-    color: #648E06;
-    font-size: 16px;
-    font-weight: bold
-}
-
-.dollar-sign {
-    font-size: 16px;
-    color: #272727;
-    font-weight: bold
-}
 
 .recent-border {
     border-left: 2px solid #5957f9;
@@ -110,7 +61,7 @@ body {
     color: #272727
 }
 
-.wishlist-border:hover {
+.wishlist-border :hover {
     border-bottom: 1px solid #dee2e6 !important
 }
 
@@ -121,5 +72,5 @@ body {
 }
 
 .fashion-studio-border:hover {
-    border-bottom: 1px solid #dee2e6 !important
+    border-bottom: 2px solid #648E06 !important
 }

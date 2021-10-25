@@ -1,6 +1,6 @@
-module.exports.clientsHome = (req, res) => {
-    res.render('clients', { user: req.user.firstName });
-}
+// module.exports.clientsHome = (req, res) => {
+//     res.render('clients', { user: req.user.firstName });
+// }
 
 module.exports.connectionsHome = (req, res) => {
     res.render('connections', { user: req.user.firstName });

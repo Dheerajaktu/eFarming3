@@ -5,6 +5,29 @@
     <%- include('layout/head.ejs')%>
         <link rel="stylesheet" href="stylesheets/home.css">
         <script src="javascripts/users.js"></script>
+        <style>
+            .follow-button {
+                color: magenta;
+                font-family: "Helvetica";
+                font-size: 10pt;
+                background-color: #ffffff;
+                border: 1px solid;
+                border-color: #3399FF;
+                border-radius: 3px;
+                width: 85px;
+                height: 30px;
+                /* position: absolute; */
+                top: 50px;
+                left: 50px;
+                cursor: hand;
+            }
+
+            .dataCss {
+                font-size: 16px;
+                color: green;
+                font-weight: 700;
+            }
+        </style>
 </head>
 
 <body class="container">
@@ -41,10 +64,11 @@
                                     </span>
                                 </div>
                                 <button type="button" class="btn btn-sm mr-1 my-1"
-                                    style="background-color: #648E06;color:ivory">Contact Seller
+                                    style="background-color: #648E06;color:ivory" id="contactSellerBtn"
+                                    data-proId="<%=data._id %>">Contact Seller
                                 </button>
                                 <span style="font-size: 12px;"><strong>MOQ: <%= data.productMOQ %></strong>
-                                        <a href="#" style="color: darkgreen;font-size: 10px;float: right;">More Details</a>
+                                    <a href="#" style="color: darkgreen;font-size: 10px;float: right;">More Details</a>
 
                                 </span>
 
@@ -59,6 +83,38 @@
             <br />
             <br />
             <br />
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="background-color:ghostwhite">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Seller's Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                id="closeModal_1">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <span>Name: <span class="dataCss">Dheeraj Sharma</span></span>
+                            <br />
+                            <span>City: <span class="dataCss">Jaunpur Puranpur</span></span>
+                            <br />
+                            <span>Transport: <span class="dataCss">Yes</span></span>
+                            <br />
+                            <span>Contact No: <span class="dataCss">9045XXXXX7</span></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary follow-button"
+                                style="float: left!important;">+Follow</button>
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                id="closeModal_2">Close</button>
+                            <button type="button" class="btn btn-success">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
     </main>
 
     <footer>

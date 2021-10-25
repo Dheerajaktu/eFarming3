@@ -65,3 +65,11 @@ $(document).on('click', '#editProfileButton, #editProductDetailButton', function
     $('#saveProfileButton, #editProductDetailSaveBtn, #addProductFormResetButton').removeAttr('disabled');
 
 })
+
+$(document).on('click', '#contactSellerBtn', function showModalContactSeller() {
+    $('#exampleModal').modal('show');
+})
+
+$(document).on('click', '#closeModal_2,#closeModal_1', function hideModal() {
+    $('#exampleModal').modal('hide');
+})

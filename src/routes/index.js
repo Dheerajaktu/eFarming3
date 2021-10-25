@@ -5,6 +5,7 @@ const controller = require('../controller/con-users');
 const products = require('../controller/con-products');
 const services = require('../controller/con-services');
 const other = require('../controller/con-other');
+const clients = require('../controller/con-clients');
 const multer = require('multer');
 require('../config/passport')(passport);
 
@@ -65,8 +66,14 @@ router.get('/getOneProduct/:id', isLoggedIn, products.getSingleProductDetails);
 router.get('/services', isLoggedIn, services.servicesHome);
 
 
+
+/*-------------------(con-clients.js-------------------)*/
+router.get('/clients', isLoggedIn, clients.clientsHome);
+
+
+
+
 /*------------------(con-other.js)-----------------*/
-router.get('/clients', isLoggedIn, other.clientsHome);
 router.get('/connections', isLoggedIn, other.connectionsHome);
 router.get('/fertilizers', isLoggedIn, other.fertilizersHome);
 router.get('/crops', isLoggedIn, other.cropsHome);
