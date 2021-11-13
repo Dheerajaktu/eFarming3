@@ -109,3 +109,8 @@ module.exports.updateUserProfile = async (req, res) => {
     })
 
 }
+
+/*-----------contact User-------------------*/
+module.exports.contactSeller = (req, res) => {
+    console.log('----controller called-----', req.body, req.params);
+}

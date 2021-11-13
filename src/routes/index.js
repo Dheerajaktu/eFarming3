@@ -34,7 +34,7 @@ router.post('/login', (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 })
-
+router.get('/contactSeller/:id', isLoggedIn, controller.contactSeller);
 
 /*------------------User Profile-----------------*/
 router.get('/profile', isLoggedIn, controller.userProfile);

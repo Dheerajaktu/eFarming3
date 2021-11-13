@@ -60,6 +60,47 @@ $(document).on('click', '#saveProfileButton', () => {
 
 })
 
+
+
+/*-------------Ajax call to contact User on click------------*/
+$(document).on('click', '#contactSellerBtn', function contacUserBtn() {
+    const sellerID = $(this).attr('data-contactSeller');
+    const URL = `/contactSeller/${sellerID}`;
+    console.log('----URL----', URL);
+    $.ajax({
+        url: URL,
+        type: 'GET'
+
+    }).then(response => {
+        if (response.status == '200') {
+            console.log('---AJAX data--', response);
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong! Please Refresh the page once!'
+            });
+        }
+    })
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(document).on('click', '#editProfileButton, #editProductDetailButton', function onFormChange() {
     $('input,textarea').removeAttr('readonly');
     $('#saveProfileButton, #editProductDetailSaveBtn, #addProductFormResetButton').removeAttr('disabled');
