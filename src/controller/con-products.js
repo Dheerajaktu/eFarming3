@@ -29,7 +29,14 @@ module.exports.indexPage = async (req, res) => {
     (async ()=>{
     console.log('------public IP v4---', await publicIP.v4())
     })();
-    
+    dns.lookup('efarming3.herokuapp.com', (err, value) => { 
+        if(err) { 
+            console.log(err); 
+            return; 
+        } 
+     console.log('=====https://efarming3.herokuapp.com/=======',value);   
+    }) 
+
 
 /*---------------------------------------------------*/
     await Products.find({}, (err, data) => {
