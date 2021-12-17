@@ -7,9 +7,11 @@ const publicIP = require('public-ip');
 const dns = require('dns');
 const os = require('os');
 const ip = dns.getServers();
+const ip1 = require('ip');
 
 module.exports.indexPage = async (req, res) => {
-
+/*-------------------------------------------------------*/    
+   console.log('===========Remote Address=>>>>>', req.connection.remoteAddress);
     console.log('>>> Server IP --->>>', ip);
     dns.lookupService(ip[0], process.env.port||80,(err, hostname, service) => console.log('>>> Application hostname --->>>', hostname));
     const interfaces = os.networkInterfaces();
@@ -23,26 +25,13 @@ module.exports.indexPage = async (req, res) => {
        }
     }
     console.log('---------IP address-------', addresses);
-    
-    
-    const ip1 = require('ip');
     console.log('=====IP1=====>>>', ip1.address());
-    
     (async ()=>{
     console.log('------public IP v4---', await publicIP.v4())
-    
     })();
+    
 
-
-
-
-
-
-
-
-
-
-
+/*---------------------------------------------------*/
     await Products.find({}, (err, data) => {
         if (err) throw err;
         if (req.user) {
