@@ -75,11 +75,11 @@ $(document).on('click', '#contactSellerBtn', function contacUserBtn() {
         if (response.status == '200') {
             console.log('---AJAX data--', response);
         } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Something went wrong! Please Refresh the page once!'
-            });
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: 'Something went wrong! Please Refresh the page once!'
+            // });
         }
     })
 

@@ -66,8 +66,45 @@ app.set('view engine', 'ejs');
 app.use('/', indexRouter);
 // app.use('/user', usersRouter);
 
+
+
+
+
+
+
+
+
+
+
+
 app.listen(port, () => {
   console.log('server started at port 4000');
 })
 
+const publicIP = require('public-ip');
+const dns = require('dns');
+const os = require('os');
+const ip = dns.getServers();
+console.log('>>> Server IP --->>>', ip);
+dns.lookupService(ip[0], process.env.port||80,(err, hostname, service) => console.log('>>> Application hostname --->>>', hostname));
+const interfaces = os.networkInterfaces();
+let addresses = [];
+for (let k in interfaces) {
+  for (let k2 in interfaces[k]) {
+    let address = interfaces[k][k2];
+      if (address.family === 'IPv4' && !address.internal) {
+          addresses.push(address.address);
+      }
+   }
+}
+console.log('---------IP address-------', addresses);
+
+
+const ip1 = require('ip');
+console.log('=====IP1=====>>>', ip1.address());
+
+(async ()=>{
+console.log('------public IP v4---', await publicIP.v4())
+
+})();
 module.exports = app;
