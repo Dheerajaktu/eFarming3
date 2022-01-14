@@ -87,11 +87,14 @@ $(document).on('click', '#contactSellerBtn', function contacUserBtn() {
 
 
 $(document).ready(function showAlert() {
-    Swal.fire({
-        icon: 'success',
-        title: 'Alert',
-        text: 'We decided to develop this project when Govt. of India introduced e Farming bills However Govt. Repealed these Bills so We are not working on this project nowdays - Regards - Dheeraj Sharma!!!'
-    });
+    if(window.location.pathname == '/') {
+        Swal.fire({
+            icon: 'success',
+            title: 'Alert',
+            text: 'We decided to develop this project when Govt. of India introduced e Farming bills However Govt. Repealed these Bills so We are not working on this project nowdays - Regards - Dheeraj Sharma!!!'
+        });
+    }
+
 })
 
 
