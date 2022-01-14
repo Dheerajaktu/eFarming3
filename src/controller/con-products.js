@@ -10,35 +10,6 @@ const ip = dns.getServers();
 const ip1 = require('ip');
 
 module.exports.indexPage = async (req, res) => {
-/*-------------------------------------------------------*/    
-   console.log('===========Remote Address=>>>>>', req.connection.remoteAddress);
-    console.log('>>> Server IP --->>>', ip);
-    dns.lookupService(ip[0], process.env.port||80,(err, hostname, service) => console.log('>>> Application hostname --->>>', hostname));
-    const interfaces = os.networkInterfaces();
-    let addresses = [];
-    for (let k in interfaces) {
-      for (let k2 in interfaces[k]) {
-        let address = interfaces[k][k2];
-          if (address.family === 'IPv4' && !address.internal) {
-              addresses.push(address.address);
-          }
-       }
-    }
-    console.log('---------IP address-------', addresses);
-    console.log('=====IP1=====>>>', ip1.address());
-    (async ()=>{
-    console.log('------public IP v4---', await publicIP.v4())
-    })();
-    dns.lookup('efarming3.herokuapp.com', (err, value) => { 
-        if(err) { 
-            console.log(err); 
-            return; 
-        } 
-     console.log('=====https://efarming3.herokuapp.com/=======',value);   
-    }) 
-
-
-/*---------------------------------------------------*/
     await Products.find({}, (err, data) => {
         if (err) throw err;
         if (req.user) {
